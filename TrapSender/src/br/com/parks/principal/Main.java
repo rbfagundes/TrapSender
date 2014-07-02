@@ -6,6 +6,8 @@ public class Main {
 
 	public static void main(String[] args) {
 		new TrapSenderPanel().setVisible(true);
+
+		System.out.println("testando commit git");
 	}
 
 }
