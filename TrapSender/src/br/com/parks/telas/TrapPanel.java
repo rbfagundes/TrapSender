@@ -59,6 +59,7 @@ public class TrapPanel extends javax.swing.JFrame {
 			varbindListModel.addElement(varbind);
 		}
 		jListVarbinds.setFixedCellWidth(250);
+		jListVarbinds.setFixedCellHeight(15);
 		jButtonAddTrap.setText("Update Trap");
 
 	}
