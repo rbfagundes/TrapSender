@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.DefaultListModel;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 import br.com.parks.service.TrapServiceImpl;
@@ -76,6 +77,9 @@ public class TrapPanel extends javax.swing.JFrame {
 	// <editor-fold defaultstate="collapsed"
 	// <editor-fold defaultstate="collapsed"
 	// <editor-fold defaultstate="collapsed"
+	// <editor-fold defaultstate="collapsed"
+	// <editor-fold defaultstate="collapsed"
+	// <editor-fold defaultstate="collapsed"
 	// desc="Generated Code">//GEN-BEGIN:initComponents
 	private void initComponents() {
 		java.awt.GridBagConstraints gridBagConstraints;
@@ -90,11 +94,18 @@ public class TrapPanel extends javax.swing.JFrame {
 		jScrollPane1 = new javax.swing.JScrollPane();
 		jListVarbinds = new javax.swing.JList();
 		jLabel4 = new javax.swing.JLabel();
-		jButtonAddVarbind = new javax.swing.JButton();
-		jButtonEditVarbind = new javax.swing.JButton();
+		jButtonAddVarbind = new javax.swing.JButton(new ImageIcon(
+				"images/add.png"));
+		jButtonEditVarbind = new javax.swing.JButton(new ImageIcon(
+				"images/edit.png"));
 		jButtonAddTrap = new javax.swing.JButton();
 		jPasswordFieldComunity = new javax.swing.JPasswordField();
-		jButtonRemoveVarbind = new javax.swing.JButton();
+		jButtonRemoveVarbind = new javax.swing.JButton(new ImageIcon(
+				"images/delete.png"));
+		jButtonMoveUp = new javax.swing.JButton(new ImageIcon(
+				"images/go-up.png"));
+		jButtonMoveDown = new javax.swing.JButton(new ImageIcon(
+				"images/go-down.png"));
 
 		setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 		setTitle("Add Trap");
@@ -170,11 +181,13 @@ public class TrapPanel extends javax.swing.JFrame {
 		gridBagConstraints.insets = new java.awt.Insets(0, 5, 20, 20);
 		jPanelForm.add(jLabel4, gridBagConstraints);
 
-		jButtonAddVarbind.setText("Add");
-		jButtonAddVarbind.setPreferredSize(new java.awt.Dimension(81, 23));
+		jButtonAddVarbind.setToolTipText("Add Varbind");
+		jButtonAddVarbind.setBorder(null);
+		jButtonAddVarbind.setBorderPainted(false);
+		jButtonAddVarbind.setContentAreaFilled(false);
+		jButtonAddVarbind.setFocusPainted(false);
 		jButtonAddVarbind
 				.addActionListener(new java.awt.event.ActionListener() {
-					@Override
 					public void actionPerformed(java.awt.event.ActionEvent evt) {
 						jButtonAddVarbindActionPerformed(evt);
 					}
@@ -186,11 +199,13 @@ public class TrapPanel extends javax.swing.JFrame {
 		gridBagConstraints.insets = new java.awt.Insets(0, 0, 60, 10);
 		jPanelForm.add(jButtonAddVarbind, gridBagConstraints);
 
-		jButtonEditVarbind.setText("Edit");
-		jButtonEditVarbind.setPreferredSize(new java.awt.Dimension(81, 23));
+		jButtonEditVarbind.setToolTipText("Edit Varbind");
+		jButtonEditVarbind.setBorder(null);
+		jButtonEditVarbind.setBorderPainted(false);
+		jButtonEditVarbind.setContentAreaFilled(false);
+		jButtonEditVarbind.setFocusPainted(false);
 		jButtonEditVarbind
 				.addActionListener(new java.awt.event.ActionListener() {
-					@Override
 					public void actionPerformed(java.awt.event.ActionEvent evt) {
 						jButtonEditVarbindActionPerformed(evt);
 					}
@@ -204,7 +219,6 @@ public class TrapPanel extends javax.swing.JFrame {
 
 		jButtonAddTrap.setText("Add Trap");
 		jButtonAddTrap.addActionListener(new java.awt.event.ActionListener() {
-			@Override
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
 				jButtonAddTrapActionPerformed(evt);
 			}
@@ -225,11 +239,13 @@ public class TrapPanel extends javax.swing.JFrame {
 		gridBagConstraints.insets = new java.awt.Insets(0, 0, 20, 20);
 		jPanelForm.add(jPasswordFieldComunity, gridBagConstraints);
 
-		jButtonRemoveVarbind.setText("Remove");
-		jButtonRemoveVarbind.setPreferredSize(new java.awt.Dimension(81, 23));
+		jButtonRemoveVarbind.setToolTipText("Remove Varbind");
+		jButtonRemoveVarbind.setBorder(null);
+		jButtonRemoveVarbind.setBorderPainted(false);
+		jButtonRemoveVarbind.setContentAreaFilled(false);
+		jButtonRemoveVarbind.setFocusPainted(false);
 		jButtonRemoveVarbind
 				.addActionListener(new java.awt.event.ActionListener() {
-					@Override
 					public void actionPerformed(java.awt.event.ActionEvent evt) {
 						jButtonRemoveVarbindActionPerformed(evt);
 					}
@@ -241,12 +257,72 @@ public class TrapPanel extends javax.swing.JFrame {
 		gridBagConstraints.insets = new java.awt.Insets(60, 0, 0, 10);
 		jPanelForm.add(jButtonRemoveVarbind, gridBagConstraints);
 
+		jButtonMoveUp.setToolTipText("Move Up");
+		jButtonMoveUp.setBorder(null);
+		jButtonMoveUp.setBorderPainted(false);
+		jButtonMoveUp.setContentAreaFilled(false);
+		jButtonMoveUp.setFocusPainted(false);
+		jButtonMoveUp.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				jButtonMoveUpActionPerformed(evt);
+			}
+		});
+		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints.gridx = 2;
+		gridBagConstraints.gridy = 2;
+		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+		gridBagConstraints.insets = new java.awt.Insets(90, 0, 0, 10);
+		jPanelForm.add(jButtonMoveUp, gridBagConstraints);
+
+		jButtonMoveDown.setToolTipText("Move Down");
+		jButtonMoveDown.setBorder(null);
+		jButtonMoveDown.setBorderPainted(false);
+		jButtonMoveDown.setContentAreaFilled(false);
+		jButtonMoveDown.setFocusPainted(false);
+		jButtonMoveDown.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				jButtonMoveDownActionPerformed(evt);
+			}
+		});
+		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints.gridx = 2;
+		gridBagConstraints.gridy = 2;
+		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+		gridBagConstraints.insets = new java.awt.Insets(120, 0, 0, 10);
+		jPanelForm.add(jButtonMoveDown, gridBagConstraints);
+
 		jPanelBorda.add(jPanelForm);
 
 		getContentPane().add(jPanelBorda, java.awt.BorderLayout.CENTER);
 
 		pack();
 	}// </editor-fold>//GEN-END:initComponents
+
+	private void jButtonMoveDownActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButtonMoveDownActionPerformed
+		if (jListVarbinds.getSelectedIndex() == -1) {
+			JOptionPane.showMessageDialog(null, "Please select an item",
+					"Error", JOptionPane.ERROR_MESSAGE);
+		} else if (jListVarbinds.getSelectedIndex() == varbindListModel
+				.getSize() - 1) {
+			JOptionPane.showMessageDialog(null,
+					"You can't move down this item", "Error",
+					JOptionPane.ERROR_MESSAGE);
+		} else {
+			varbindMoveDown();
+		}
+	}// GEN-LAST:event_jButtonMoveDownActionPerformed
+
+	private void jButtonMoveUpActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButtonMoveUpActionPerformed
+		if (jListVarbinds.getSelectedIndex() == -1) {
+			JOptionPane.showMessageDialog(null, "Please select an item",
+					"Error", JOptionPane.ERROR_MESSAGE);
+		} else if (jListVarbinds.getSelectedIndex() == 0) {
+			JOptionPane.showMessageDialog(null, "You can't move up this item",
+					"Error", JOptionPane.ERROR_MESSAGE);
+		} else {
+			varbindMoveUp();
+		}
+	}// GEN-LAST:event_jButtonMoveUpActionPerformed
 
 	private void jButtonAddTrapActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButtonAddTrapActionPerformed
 		TrapServiceImpl trapService = new TrapServiceImpl();
@@ -395,6 +471,30 @@ public class TrapPanel extends javax.swing.JFrame {
 		return true;
 	}
 
+	private void varbindMoveUp() {
+		int indexA = jListVarbinds.getSelectedIndex();
+
+		Object objA = varbindListModel.elementAt(indexA);
+		Object objB = varbindListModel.elementAt(indexA - 1);
+
+		varbindListModel.set(indexA - 1, objA);
+		varbindListModel.set(indexA, objB);
+		jListVarbinds.setSelectedIndex(indexA - 1);
+		// trapService.saveTraps(getTrapsOnJList());
+	}
+
+	private void varbindMoveDown() {
+		int indexA = jListVarbinds.getSelectedIndex();
+
+		Object objA = varbindListModel.elementAt(indexA);
+		Object objB = varbindListModel.elementAt(indexA + 1);
+
+		varbindListModel.set(indexA + 1, objA);
+		varbindListModel.set(indexA, objB);
+		jListVarbinds.setSelectedIndex(indexA + 1);
+		// trapService.saveTraps(getTrapsOnJList());
+	}
+
 	public DefaultListModel getVarbindListModel() {
 		return varbindListModel;
 	}
@@ -415,6 +515,8 @@ public class TrapPanel extends javax.swing.JFrame {
 	private javax.swing.JButton jButtonAddTrap;
 	private javax.swing.JButton jButtonAddVarbind;
 	private javax.swing.JButton jButtonEditVarbind;
+	private javax.swing.JButton jButtonMoveDown;
+	private javax.swing.JButton jButtonMoveUp;
 	private javax.swing.JButton jButtonRemoveVarbind;
 	private javax.swing.JLabel jLabel1;
 	private javax.swing.JLabel jLabel2;
