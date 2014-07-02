@@ -46,6 +46,7 @@ public class TrapSenderPanel extends javax.swing.JFrame {
 	// <editor-fold defaultstate="collapsed"
 	// <editor-fold defaultstate="collapsed"
 	// <editor-fold defaultstate="collapsed"
+	// <editor-fold defaultstate="collapsed"
 	// desc="Generated Code">//GEN-BEGIN:initComponents
 	private void initComponents() {
 		java.awt.GridBagConstraints gridBagConstraints;
@@ -71,6 +72,8 @@ public class TrapSenderPanel extends javax.swing.JFrame {
 		jButtonAddTrap = new javax.swing.JButton();
 		jButtonEditTrap = new javax.swing.JButton();
 		jButtonRemoveTrap = new javax.swing.JButton();
+		jButtonMoveUp = new javax.swing.JButton();
+		jButtonMoveDown = new javax.swing.JButton();
 
 		setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 		setTitle("Trap Sender");
@@ -208,7 +211,7 @@ public class TrapSenderPanel extends javax.swing.JFrame {
 		jPanelForm.add(jTextFieldRepeatInterval, gridBagConstraints);
 
 		jButtonAddTrap.setText("Add ");
-		jButtonAddTrap.setPreferredSize(new java.awt.Dimension(81, 23));
+		jButtonAddTrap.setPreferredSize(new java.awt.Dimension(89, 23));
 		jButtonAddTrap.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
 				jButtonAddTrapActionPerformed(evt);
@@ -221,7 +224,7 @@ public class TrapSenderPanel extends javax.swing.JFrame {
 		jPanelForm.add(jButtonAddTrap, gridBagConstraints);
 
 		jButtonEditTrap.setText("Edit ");
-		jButtonEditTrap.setPreferredSize(new java.awt.Dimension(81, 23));
+		jButtonEditTrap.setPreferredSize(new java.awt.Dimension(89, 23));
 		jButtonEditTrap.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
 				jButtonEditTrapActionPerformed(evt);
@@ -235,7 +238,7 @@ public class TrapSenderPanel extends javax.swing.JFrame {
 		jPanelForm.add(jButtonEditTrap, gridBagConstraints);
 
 		jButtonRemoveTrap.setText("Remove");
-		jButtonRemoveTrap.setPreferredSize(new java.awt.Dimension(81, 23));
+		jButtonRemoveTrap.setPreferredSize(new java.awt.Dimension(89, 23));
 		jButtonRemoveTrap
 				.addActionListener(new java.awt.event.ActionListener() {
 					public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -249,12 +252,65 @@ public class TrapSenderPanel extends javax.swing.JFrame {
 		gridBagConstraints.insets = new java.awt.Insets(60, 0, 0, 0);
 		jPanelForm.add(jButtonRemoveTrap, gridBagConstraints);
 
+		jButtonMoveUp.setText("Move Up");
+		jButtonMoveUp.setPreferredSize(new java.awt.Dimension(89, 23));
+		jButtonMoveUp.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				jButtonMoveUpActionPerformed(evt);
+			}
+		});
+		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints.gridx = 2;
+		gridBagConstraints.gridy = 2;
+		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+		gridBagConstraints.insets = new java.awt.Insets(90, 0, 0, 0);
+		jPanelForm.add(jButtonMoveUp, gridBagConstraints);
+
+		jButtonMoveDown.setText("Move Down");
+		jButtonMoveDown.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				jButtonMoveDownActionPerformed(evt);
+			}
+		});
+		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints.gridx = 2;
+		gridBagConstraints.gridy = 2;
+		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+		gridBagConstraints.insets = new java.awt.Insets(120, 0, 0, 0);
+		jPanelForm.add(jButtonMoveDown, gridBagConstraints);
+
 		jPanelBorda.add(jPanelForm);
 
 		getContentPane().add(jPanelBorda, java.awt.BorderLayout.CENTER);
 
 		pack();
 	}// </editor-fold>//GEN-END:initComponents
+
+	private void jButtonMoveUpActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButtonMoveUpActionPerformed
+		if (jListTraps.getSelectedIndex() == -1) {
+			JOptionPane.showMessageDialog(null, "Please select an item",
+					"Error", JOptionPane.ERROR_MESSAGE);
+		} else if (jListTraps.getSelectedIndex() == 0) {
+			JOptionPane.showMessageDialog(null, "You can't move up this item",
+					"Error", JOptionPane.ERROR_MESSAGE);
+		} else {
+			trapMoveUp();
+		}
+	}// GEN-LAST:event_jButtonMoveUpActionPerformed
+
+	private void jButtonMoveDownActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButtonMoveDownActionPerformed
+		if (jListTraps.getSelectedIndex() == -1) {
+			JOptionPane.showMessageDialog(null, "Please select an item",
+					"Error", JOptionPane.ERROR_MESSAGE);
+		} else if (jListTraps.getSelectedIndex() == defaultListModelTraps
+				.getSize() - 1) {
+			JOptionPane.showMessageDialog(null,
+					"You can't move down this item", "Error",
+					JOptionPane.ERROR_MESSAGE);
+		} else {
+			trapMoveDown();
+		}
+	}// GEN-LAST:event_jButtonMoveDownActionPerformed
 
 	private void init() {
 		// set traps
@@ -268,6 +324,10 @@ public class TrapSenderPanel extends javax.swing.JFrame {
 		setDefaultListModelNEs(new DefaultListModel());
 		jListNEsIP.setModel(getDefaultListModelNEs());
 
+		// set default data
+		jTextFieldQuantity.setText("1");
+		jTextFieldRepeatInterval.setText("1");
+		jTextFieldSendInterval.setText("1");
 	}
 
 	private void jButtonAddTrapActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButtonAddTrapActionPerformed
@@ -363,6 +423,11 @@ public class TrapSenderPanel extends javax.swing.JFrame {
 		if (evt.getButton() == evt.BUTTON3) {
 			showJListTrapsMenu(evt);
 		}
+
+		if (evt.getClickCount() > 1) {
+			editTrapPanel();
+		}
+
 	}// GEN-LAST:event_jListTrapsMouseClicked
 
 	private void showJListTrapsMenu(java.awt.event.MouseEvent evt) {
@@ -396,38 +461,22 @@ public class TrapSenderPanel extends javax.swing.JFrame {
 			popup.add(item3);
 
 			if (jListTraps.getSelectedIndex() != 0) {
-				JMenuItem item4 = new JMenuItem("Mover para cima");
+				JMenuItem item4 = new JMenuItem("Move Up");
 				item4.addActionListener(new ActionListener() {
 					@Override
 					public void actionPerformed(ActionEvent e) {
-						int indexA = jListTraps.getSelectedIndex();
-
-						Object objA = defaultListModelTraps.elementAt(indexA);
-						Object objB = defaultListModelTraps
-								.elementAt(indexA - 1);
-
-						defaultListModelTraps.set(indexA - 1, objA);
-						defaultListModelTraps.set(indexA, objB);
-
+						trapMoveUp();
 					}
 				});
 				popup.add(item4);
 			}
 
 			if (jListTraps.getSelectedIndex() != defaultListModelTraps.size() - 1) {
-				JMenuItem item4 = new JMenuItem("Mover para baixo");
+				JMenuItem item4 = new JMenuItem("Move Down");
 				item4.addActionListener(new ActionListener() {
 					@Override
 					public void actionPerformed(ActionEvent e) {
-						int indexA = jListTraps.getSelectedIndex();
-
-						Object objA = defaultListModelTraps.elementAt(indexA);
-						Object objB = defaultListModelTraps
-								.elementAt(indexA + 1);
-
-						defaultListModelTraps.set(indexA + 1, objA);
-						defaultListModelTraps.set(indexA, objB);
-
+						trapMoveDown();
 					}
 				});
 				popup.add(item4);
@@ -435,6 +484,26 @@ public class TrapSenderPanel extends javax.swing.JFrame {
 		}
 
 		popup.show(jListTraps, evt.getX(), evt.getY());
+	}
+
+	private void trapMoveUp() {
+		int indexA = jListTraps.getSelectedIndex();
+
+		Object objA = defaultListModelTraps.elementAt(indexA);
+		Object objB = defaultListModelTraps.elementAt(indexA - 1);
+
+		defaultListModelTraps.set(indexA - 1, objA);
+		defaultListModelTraps.set(indexA, objB);
+	}
+
+	private void trapMoveDown() {
+		int indexA = jListTraps.getSelectedIndex();
+
+		Object objA = defaultListModelTraps.elementAt(indexA);
+		Object objB = defaultListModelTraps.elementAt(indexA + 1);
+
+		defaultListModelTraps.set(indexA + 1, objA);
+		defaultListModelTraps.set(indexA, objB);
 	}
 
 	public DefaultListModel getDefaultListModelTraps() {
@@ -456,6 +525,8 @@ public class TrapSenderPanel extends javax.swing.JFrame {
 	// Variables declaration - do not modify//GEN-BEGIN:variables
 	private javax.swing.JButton jButtonAddTrap;
 	private javax.swing.JButton jButtonEditTrap;
+	private javax.swing.JButton jButtonMoveDown;
+	private javax.swing.JButton jButtonMoveUp;
 	private javax.swing.JButton jButtonRemoveTrap;
 	private javax.swing.JLabel jLabel1;
 	private javax.swing.JLabel jLabel2;
