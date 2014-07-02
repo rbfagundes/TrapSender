@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.DefaultListModel;
+import javax.swing.ImageIcon;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPopupMenu;
@@ -49,6 +50,15 @@ public class TrapSenderPanel extends javax.swing.JFrame {
 	// <editor-fold defaultstate="collapsed"
 	// <editor-fold defaultstate="collapsed"
 	// <editor-fold defaultstate="collapsed"
+	// <editor-fold defaultstate="collapsed"
+	// <editor-fold defaultstate="collapsed"
+	// <editor-fold defaultstate="collapsed"
+	// <editor-fold defaultstate="collapsed"
+	// <editor-fold defaultstate="collapsed"
+	// <editor-fold defaultstate="collapsed"
+	// <editor-fold defaultstate="collapsed"
+	// <editor-fold defaultstate="collapsed"
+	// <editor-fold defaultstate="collapsed"
 	// desc="Generated Code">//GEN-BEGIN:initComponents
 	private void initComponents() {
 		java.awt.GridBagConstraints gridBagConstraints;
@@ -71,12 +81,16 @@ public class TrapSenderPanel extends javax.swing.JFrame {
 		jTextFieldQuantity = new javax.swing.JTextField();
 		jTextFieldSendInterval = new javax.swing.JTextField();
 		jTextFieldRepeatInterval = new javax.swing.JTextField();
-		jButtonAddTrap = new javax.swing.JButton();
-		jButtonEditTrap = new javax.swing.JButton();
-		jButtonRemoveTrap = new javax.swing.JButton();
-		jButtonMoveUp = new javax.swing.JButton();
-		jButtonMoveDown = new javax.swing.JButton();
-
+		jButtonAddTrap = new javax.swing.JButton(
+				new ImageIcon("images/add.png"));
+		jButtonRemoveTrap = new javax.swing.JButton(new ImageIcon(
+				"images/delete.png"));
+		jButtonEditTrap = new javax.swing.JButton(new ImageIcon(
+				"images/edit.png"));
+		jButtonMoveUp = new javax.swing.JButton(new ImageIcon(
+				"images/go-up.png"));
+		jButtonMoveDown = new javax.swing.JButton(new ImageIcon(
+				"images/go-down.png"));
 		setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 		setTitle("Trap Sender");
 
@@ -136,18 +150,17 @@ public class TrapSenderPanel extends javax.swing.JFrame {
 
 		jLabel6.setText("Send interval:");
 		gridBagConstraints = new java.awt.GridBagConstraints();
-		gridBagConstraints.gridx = 0;
-		gridBagConstraints.gridy = 4;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-		gridBagConstraints.insets = new java.awt.Insets(15, 5, 20, 20);
+		gridBagConstraints.gridx = 1;
+		gridBagConstraints.gridy = 3;
+		gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+		gridBagConstraints.insets = new java.awt.Insets(15, 50, 20, 20);
 		jPanelForm.add(jLabel6, gridBagConstraints);
 
 		jLabel7.setText("Repeat interval:");
 		gridBagConstraints = new java.awt.GridBagConstraints();
-		gridBagConstraints.gridx = 0;
-		gridBagConstraints.gridy = 5;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-		gridBagConstraints.insets = new java.awt.Insets(15, 5, 20, 20);
+		gridBagConstraints.gridx = 1;
+		gridBagConstraints.gridy = 3;
+		gridBagConstraints.insets = new java.awt.Insets(15, 150, 20, 20);
 		jPanelForm.add(jLabel7, gridBagConstraints);
 
 		jTextFieldPort.setColumns(1);
@@ -190,30 +203,35 @@ public class TrapSenderPanel extends javax.swing.JFrame {
 		gridBagConstraints.weighty = 1.0;
 		gridBagConstraints.insets = new java.awt.Insets(0, 0, 20, 20);
 		jPanelForm.add(jScrollPane2, gridBagConstraints);
+
+		jTextFieldQuantity.setColumns(3);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 1;
 		gridBagConstraints.gridy = 3;
-		gridBagConstraints.ipadx = 53;
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-		gridBagConstraints.insets = new java.awt.Insets(15, 0, 20, 20);
+		gridBagConstraints.insets = new java.awt.Insets(15, -1, 20, 20);
 		jPanelForm.add(jTextFieldQuantity, gridBagConstraints);
+
+		jTextFieldSendInterval.setColumns(3);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 1;
-		gridBagConstraints.gridy = 4;
-		gridBagConstraints.ipadx = 53;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-		gridBagConstraints.insets = new java.awt.Insets(15, 0, 20, 20);
+		gridBagConstraints.gridy = 3;
+		gridBagConstraints.insets = new java.awt.Insets(15, -10, 20, 10);
 		jPanelForm.add(jTextFieldSendInterval, gridBagConstraints);
+
+		jTextFieldRepeatInterval.setColumns(3);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 1;
-		gridBagConstraints.gridy = 5;
-		gridBagConstraints.ipadx = 53;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-		gridBagConstraints.insets = new java.awt.Insets(15, 0, 20, 20);
+		gridBagConstraints.gridy = 3;
+		gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+		gridBagConstraints.insets = new java.awt.Insets(15, 45, 20, 15);
 		jPanelForm.add(jTextFieldRepeatInterval, gridBagConstraints);
 
-		jButtonAddTrap.setText("Add ");
-		jButtonAddTrap.setPreferredSize(new java.awt.Dimension(89, 23));
+		jButtonAddTrap.setToolTipText("Add Trap");
+		jButtonAddTrap.setBorder(null);
+		jButtonAddTrap.setBorderPainted(false);
+		jButtonAddTrap.setContentAreaFilled(false);
+		jButtonAddTrap.setFocusPainted(false);
 		jButtonAddTrap.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
 				jButtonAddTrapActionPerformed(evt);
@@ -225,22 +243,13 @@ public class TrapSenderPanel extends javax.swing.JFrame {
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
 		jPanelForm.add(jButtonAddTrap, gridBagConstraints);
 
-		jButtonEditTrap.setText("Edit ");
-		jButtonEditTrap.setPreferredSize(new java.awt.Dimension(89, 23));
-		jButtonEditTrap.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jButtonEditTrapActionPerformed(evt);
-			}
-		});
-		gridBagConstraints = new java.awt.GridBagConstraints();
-		gridBagConstraints.gridx = 2;
-		gridBagConstraints.gridy = 2;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
-		gridBagConstraints.insets = new java.awt.Insets(30, 0, 0, 0);
-		jPanelForm.add(jButtonEditTrap, gridBagConstraints);
-
-		jButtonRemoveTrap.setText("Remove");
-		jButtonRemoveTrap.setPreferredSize(new java.awt.Dimension(89, 23));
+		jButtonRemoveTrap.setToolTipText("Remove Trap");
+		jButtonRemoveTrap.setBorder(null);
+		jButtonRemoveTrap.setBorderPainted(false);
+		jButtonRemoveTrap.setContentAreaFilled(false);
+		jButtonRemoveTrap.setFocusPainted(false);
+		jButtonRemoveTrap.setPreferredSize(new java.awt.Dimension(35, 23));
+		jButtonRemoveTrap.setRequestFocusEnabled(false);
 		jButtonRemoveTrap
 				.addActionListener(new java.awt.event.ActionListener() {
 					public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -251,11 +260,33 @@ public class TrapSenderPanel extends javax.swing.JFrame {
 		gridBagConstraints.gridx = 2;
 		gridBagConstraints.gridy = 2;
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
-		gridBagConstraints.insets = new java.awt.Insets(60, 0, 0, 0);
+		gridBagConstraints.insets = new java.awt.Insets(30, 0, 0, 0);
 		jPanelForm.add(jButtonRemoveTrap, gridBagConstraints);
 
-		jButtonMoveUp.setText("Move Up");
-		jButtonMoveUp.setPreferredSize(new java.awt.Dimension(89, 23));
+		jButtonEditTrap.setToolTipText("Edit Trap");
+		jButtonEditTrap.setBorder(null);
+		jButtonEditTrap.setBorderPainted(false);
+		jButtonEditTrap.setContentAreaFilled(false);
+		jButtonEditTrap.setFocusPainted(false);
+		jButtonEditTrap.setPreferredSize(new java.awt.Dimension(35, 23));
+		jButtonEditTrap.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				jButtonEditTrapActionPerformed(evt);
+			}
+		});
+		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints.gridx = 2;
+		gridBagConstraints.gridy = 2;
+		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+		gridBagConstraints.insets = new java.awt.Insets(60, 0, 0, 0);
+		jPanelForm.add(jButtonEditTrap, gridBagConstraints);
+
+		jButtonMoveUp.setToolTipText("Move Up");
+		jButtonMoveUp.setBorder(null);
+		jButtonMoveUp.setBorderPainted(false);
+		jButtonMoveUp.setContentAreaFilled(false);
+		jButtonMoveUp.setFocusPainted(false);
+		jButtonMoveUp.setPreferredSize(new java.awt.Dimension(35, 23));
 		jButtonMoveUp.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
 				jButtonMoveUpActionPerformed(evt);
@@ -268,7 +299,12 @@ public class TrapSenderPanel extends javax.swing.JFrame {
 		gridBagConstraints.insets = new java.awt.Insets(90, 0, 0, 0);
 		jPanelForm.add(jButtonMoveUp, gridBagConstraints);
 
-		jButtonMoveDown.setText("Move Down");
+		jButtonMoveDown.setToolTipText("Move Down");
+		jButtonMoveDown.setBorder(null);
+		jButtonMoveDown.setBorderPainted(false);
+		jButtonMoveDown.setContentAreaFilled(false);
+		jButtonMoveDown.setFocusPainted(false);
+		jButtonMoveDown.setPreferredSize(new java.awt.Dimension(35, 23));
 		jButtonMoveDown.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
 				jButtonMoveDownActionPerformed(evt);
