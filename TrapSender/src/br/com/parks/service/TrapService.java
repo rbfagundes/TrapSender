@@ -15,4 +15,6 @@ public interface TrapService {
 	void removeTrap(Trap trap);
 
 	void editTrap(Trap trap);
+
+	void saveTraps(List<Trap> traps);
 }

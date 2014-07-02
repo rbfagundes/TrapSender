@@ -6,6 +6,8 @@ package br.com.parks.telas;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JMenuItem;
@@ -24,7 +26,7 @@ public class TrapSenderPanel extends javax.swing.JFrame {
 
 	private DefaultListModel defaultListModelTraps;
 	private DefaultListModel defaultListModelNEs;
-	TrapServiceImpl trapServiceImpl = new TrapServiceImpl();
+	TrapServiceImpl trapService = new TrapServiceImpl();
 
 	/**
 	 * Creates new form TrapSenderPanel
@@ -316,7 +318,7 @@ public class TrapSenderPanel extends javax.swing.JFrame {
 		// set traps
 		setDefaultListModelTraps(new DefaultListModel());
 		jListTraps.setModel(getDefaultListModelTraps());
-		for (Trap trap : trapServiceImpl.getTraps()) {
+		for (Trap trap : trapService.getTraps()) {
 			defaultListModelTraps.addElement(trap);
 		}
 
@@ -366,8 +368,7 @@ public class TrapSenderPanel extends javax.swing.JFrame {
 					"Attention", JOptionPane.YES_OPTION,
 					JOptionPane.QUESTION_MESSAGE, null, optionMessages, null);
 			if (removeYes == JOptionPane.YES_OPTION) {
-				trapServiceImpl
-						.removeTrap((Trap) jListTraps.getSelectedValue());
+				trapService.removeTrap((Trap) jListTraps.getSelectedValue());
 				defaultListModelTraps.removeElement(jListTraps
 						.getSelectedValue());
 			}
@@ -494,6 +495,9 @@ public class TrapSenderPanel extends javax.swing.JFrame {
 
 		defaultListModelTraps.set(indexA - 1, objA);
 		defaultListModelTraps.set(indexA, objB);
+		jListTraps.setSelectedIndex(indexA - 1);
+		trapService.saveTraps(getTrapsOnJList());
+
 	}
 
 	private void trapMoveDown() {
@@ -504,6 +508,18 @@ public class TrapSenderPanel extends javax.swing.JFrame {
 
 		defaultListModelTraps.set(indexA + 1, objA);
 		defaultListModelTraps.set(indexA, objB);
+		jListTraps.setSelectedIndex(indexA + 1);
+		trapService.saveTraps(getTrapsOnJList());
+	}
+
+	private List<Trap> getTrapsOnJList() {
+		List<Trap> traps = new ArrayList<Trap>();
+		for (int i = 0; i < defaultListModelTraps.size(); i++) {
+			Trap trap = (Trap) defaultListModelTraps.getElementAt(i);
+			traps.add(trap);
+		}
+
+		return traps;
 	}
 
 	public DefaultListModel getDefaultListModelTraps() {

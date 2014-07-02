@@ -119,4 +119,17 @@ public class TrapServiceImpl implements TrapService {
 			e.printStackTrace();
 		}
 	}
+
+	public void saveTraps(List<Trap> traps) {
+		try {
+			FileOutputStream fos = new FileOutputStream(getTrapFile());
+			ObjectOutputStream oos = new ObjectOutputStream(fos);
+
+			oos.writeObject(traps);
+			oos.close();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }
