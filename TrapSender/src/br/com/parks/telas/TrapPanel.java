@@ -86,6 +86,7 @@ public class TrapPanel extends javax.swing.JFrame {
 	// <editor-fold defaultstate="collapsed"
 	// <editor-fold defaultstate="collapsed"
 	// <editor-fold defaultstate="collapsed"
+	// <editor-fold defaultstate="collapsed"
 	// desc="Generated Code">//GEN-BEGIN:initComponents
 	private void initComponents() {
 		java.awt.GridBagConstraints gridBagConstraints;
@@ -207,7 +208,7 @@ public class TrapPanel extends javax.swing.JFrame {
 		gridBagConstraints.gridx = 2;
 		gridBagConstraints.gridy = 2;
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
-		gridBagConstraints.insets = new java.awt.Insets(0, 0, 60, 10);
+		gridBagConstraints.insets = new java.awt.Insets(8, 0, 60, 10);
 		jPanelForm.add(jButtonAddVarbind, gridBagConstraints);
 
 		jButtonEditVarbind.setToolTipText("Edit Varbind");
@@ -225,7 +226,7 @@ public class TrapPanel extends javax.swing.JFrame {
 		gridBagConstraints.gridx = 2;
 		gridBagConstraints.gridy = 2;
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
-		gridBagConstraints.insets = new java.awt.Insets(60, 0, 0, 10);
+		gridBagConstraints.insets = new java.awt.Insets(68, 0, 0, 10);
 		jPanelForm.add(jButtonEditVarbind, gridBagConstraints);
 
 		jButtonAddTrap.setText("Add Trap");
@@ -265,7 +266,7 @@ public class TrapPanel extends javax.swing.JFrame {
 		gridBagConstraints.gridx = 2;
 		gridBagConstraints.gridy = 2;
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
-		gridBagConstraints.insets = new java.awt.Insets(30, 0, 35, 10);
+		gridBagConstraints.insets = new java.awt.Insets(38, 0, 35, 10);
 		jPanelForm.add(jButtonRemoveVarbind, gridBagConstraints);
 
 		jButtonMoveUp.setToolTipText("Move Up");
@@ -282,7 +283,7 @@ public class TrapPanel extends javax.swing.JFrame {
 		gridBagConstraints.gridx = 2;
 		gridBagConstraints.gridy = 2;
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
-		gridBagConstraints.insets = new java.awt.Insets(90, 0, 0, 10);
+		gridBagConstraints.insets = new java.awt.Insets(98, 0, 0, 10);
 		jPanelForm.add(jButtonMoveUp, gridBagConstraints);
 
 		jButtonMoveDown.setToolTipText("Move Down");
@@ -299,7 +300,7 @@ public class TrapPanel extends javax.swing.JFrame {
 		gridBagConstraints.gridx = 2;
 		gridBagConstraints.gridy = 2;
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
-		gridBagConstraints.insets = new java.awt.Insets(120, 0, 0, 10);
+		gridBagConstraints.insets = new java.awt.Insets(128, 0, 0, 10);
 		jPanelForm.add(jButtonMoveDown, gridBagConstraints);
 
 		jPanelBorda.add(jPanelForm);
