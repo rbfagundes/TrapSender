@@ -59,6 +59,7 @@ public class TrapSenderPanel extends javax.swing.JFrame {
 	// <editor-fold defaultstate="collapsed"
 	// <editor-fold defaultstate="collapsed"
 	// <editor-fold defaultstate="collapsed"
+	// <editor-fold defaultstate="collapsed"
 	// desc="Generated Code">//GEN-BEGIN:initComponents
 	private void initComponents() {
 		java.awt.GridBagConstraints gridBagConstraints;
@@ -70,17 +71,11 @@ public class TrapSenderPanel extends javax.swing.JFrame {
 		jLabel2 = new javax.swing.JLabel();
 		jLabel3 = new javax.swing.JLabel();
 		jLabel4 = new javax.swing.JLabel();
-		jLabel5 = new javax.swing.JLabel();
-		jLabel6 = new javax.swing.JLabel();
-		jLabel7 = new javax.swing.JLabel();
 		jTextFieldPort = new javax.swing.JTextField();
 		jScrollPane1 = new javax.swing.JScrollPane();
 		jListNEsIP = new javax.swing.JList();
 		jScrollPane2 = new javax.swing.JScrollPane();
 		jListTraps = new javax.swing.JList();
-		jTextFieldQuantity = new javax.swing.JTextField();
-		jTextFieldSendInterval = new javax.swing.JTextField();
-		jTextFieldRepeatInterval = new javax.swing.JTextField();
 		jButtonAddTrap = new javax.swing.JButton(
 				new ImageIcon("images/add.png"));
 		jButtonRemoveTrap = new javax.swing.JButton(new ImageIcon(
@@ -91,12 +86,21 @@ public class TrapSenderPanel extends javax.swing.JFrame {
 				"images/go-up.png"));
 		jButtonMoveDown = new javax.swing.JButton(new ImageIcon(
 				"images/go-down.png"));
+		jPanelFormSouth = new javax.swing.JPanel();
+		jLabel5 = new javax.swing.JLabel();
+		jTextFieldQuantity = new javax.swing.JTextField();
+		jLabel6 = new javax.swing.JLabel();
+		jTextFieldSendInterval = new javax.swing.JTextField();
+		jLabel7 = new javax.swing.JLabel();
+		jTextFieldRepeatInterval = new javax.swing.JTextField();
+
 		setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 		setTitle("Trap Sender");
 
 		jPanelBorda.setBorder(javax.swing.BorderFactory
 				.createTitledBorder(javax.swing.BorderFactory
 						.createTitledBorder("TrapSender")));
+		jPanelBorda.setLayout(new java.awt.BorderLayout());
 
 		jPanelForm.setLayout(new java.awt.GridBagLayout());
 
@@ -108,7 +112,7 @@ public class TrapSenderPanel extends javax.swing.JFrame {
 		gridBagConstraints.insets = new java.awt.Insets(15, 5, 20, 20);
 		jPanelForm.add(jLabel1, gridBagConstraints);
 
-		jTextFieldManagerIP.setColumns(15);
+		jTextFieldManagerIP.setColumns(20);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 1;
 		gridBagConstraints.gridy = 0;
@@ -139,29 +143,6 @@ public class TrapSenderPanel extends javax.swing.JFrame {
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
 		gridBagConstraints.insets = new java.awt.Insets(0, 5, 20, 20);
 		jPanelForm.add(jLabel4, gridBagConstraints);
-
-		jLabel5.setText("Quantity:");
-		gridBagConstraints = new java.awt.GridBagConstraints();
-		gridBagConstraints.gridx = 0;
-		gridBagConstraints.gridy = 3;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-		gridBagConstraints.insets = new java.awt.Insets(15, 5, 20, 20);
-		jPanelForm.add(jLabel5, gridBagConstraints);
-
-		jLabel6.setText("Send interval:");
-		gridBagConstraints = new java.awt.GridBagConstraints();
-		gridBagConstraints.gridx = 1;
-		gridBagConstraints.gridy = 3;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-		gridBagConstraints.insets = new java.awt.Insets(15, 50, 20, 20);
-		jPanelForm.add(jLabel6, gridBagConstraints);
-
-		jLabel7.setText("Repeat interval:");
-		gridBagConstraints = new java.awt.GridBagConstraints();
-		gridBagConstraints.gridx = 1;
-		gridBagConstraints.gridy = 3;
-		gridBagConstraints.insets = new java.awt.Insets(15, 150, 20, 20);
-		jPanelForm.add(jLabel7, gridBagConstraints);
 
 		jTextFieldPort.setColumns(1);
 		gridBagConstraints = new java.awt.GridBagConstraints();
@@ -203,29 +184,6 @@ public class TrapSenderPanel extends javax.swing.JFrame {
 		gridBagConstraints.weighty = 1.0;
 		gridBagConstraints.insets = new java.awt.Insets(0, 0, 20, 20);
 		jPanelForm.add(jScrollPane2, gridBagConstraints);
-
-		jTextFieldQuantity.setColumns(3);
-		gridBagConstraints = new java.awt.GridBagConstraints();
-		gridBagConstraints.gridx = 1;
-		gridBagConstraints.gridy = 3;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-		gridBagConstraints.insets = new java.awt.Insets(15, -1, 20, 20);
-		jPanelForm.add(jTextFieldQuantity, gridBagConstraints);
-
-		jTextFieldSendInterval.setColumns(3);
-		gridBagConstraints = new java.awt.GridBagConstraints();
-		gridBagConstraints.gridx = 1;
-		gridBagConstraints.gridy = 3;
-		gridBagConstraints.insets = new java.awt.Insets(15, -10, 20, 10);
-		jPanelForm.add(jTextFieldSendInterval, gridBagConstraints);
-
-		jTextFieldRepeatInterval.setColumns(3);
-		gridBagConstraints = new java.awt.GridBagConstraints();
-		gridBagConstraints.gridx = 1;
-		gridBagConstraints.gridy = 3;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-		gridBagConstraints.insets = new java.awt.Insets(15, 45, 20, 15);
-		jPanelForm.add(jTextFieldRepeatInterval, gridBagConstraints);
 
 		jButtonAddTrap.setToolTipText("Add Trap");
 		jButtonAddTrap.setBorder(null);
@@ -317,7 +275,30 @@ public class TrapSenderPanel extends javax.swing.JFrame {
 		gridBagConstraints.insets = new java.awt.Insets(120, 0, 0, 0);
 		jPanelForm.add(jButtonMoveDown, gridBagConstraints);
 
-		jPanelBorda.add(jPanelForm);
+		jPanelBorda.add(jPanelForm, java.awt.BorderLayout.CENTER);
+
+		jPanelFormSouth.setLayout(new java.awt.FlowLayout(
+				java.awt.FlowLayout.LEFT, 19, 5));
+
+		jLabel5.setText("Quantity:");
+		jPanelFormSouth.add(jLabel5);
+
+		jTextFieldQuantity.setColumns(3);
+		jPanelFormSouth.add(jTextFieldQuantity);
+
+		jLabel6.setText("Send interval:");
+		jPanelFormSouth.add(jLabel6);
+
+		jTextFieldSendInterval.setColumns(3);
+		jPanelFormSouth.add(jTextFieldSendInterval);
+
+		jLabel7.setText("Repeat interval:");
+		jPanelFormSouth.add(jLabel7);
+
+		jTextFieldRepeatInterval.setColumns(3);
+		jPanelFormSouth.add(jTextFieldRepeatInterval);
+
+		jPanelBorda.add(jPanelFormSouth, java.awt.BorderLayout.SOUTH);
 
 		getContentPane().add(jPanelBorda, java.awt.BorderLayout.CENTER);
 
@@ -377,13 +358,13 @@ public class TrapSenderPanel extends javax.swing.JFrame {
 	}
 
 	private void jButtonEditTrapActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButtonEditTrapActionPerformed
-		editTrapPanel();
+		editTrapPanel(jListTraps.getSelectedValue());
 	}// GEN-LAST:event_jButtonEditTrapActionPerformed
 
-	private void editTrapPanel() {
+	private void editTrapPanel(Object trapObject) {
 		if (jListTraps.getSelectedValue() != null) {
 			new TrapPanel(defaultListModelTraps, jListTraps.getSelectedIndex(),
-					jListTraps.getSelectedValue()).setVisible(true);
+					trapObject).setVisible(true);
 		} else {
 			JOptionPane.showMessageDialog(null, "You need select an item.",
 					"Error", JOptionPane.ERROR_MESSAGE);
@@ -462,9 +443,8 @@ public class TrapSenderPanel extends javax.swing.JFrame {
 		}
 
 		if (evt.getClickCount() > 1) {
-			editTrapPanel();
+			editTrapPanel(jListTraps.getSelectedValue());
 		}
-
 	}// GEN-LAST:event_jListTrapsMouseClicked
 
 	private void showJListTrapsMenu(java.awt.event.MouseEvent evt) {
@@ -483,7 +463,7 @@ public class TrapSenderPanel extends javax.swing.JFrame {
 			item2.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					editTrapPanel();
+					editTrapPanel(jListTraps.getSelectedValue());
 				}
 			});
 			popup.add(item2);
@@ -497,6 +477,15 @@ public class TrapSenderPanel extends javax.swing.JFrame {
 			});
 			popup.add(item3);
 
+			JMenuItem item6 = new JMenuItem("Copy Trap");
+			item6.addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					copyTrap();
+				}
+			});
+			popup.add(item6);
+
 			if (jListTraps.getSelectedIndex() != 0) {
 				JMenuItem item4 = new JMenuItem("Move Up");
 				item4.addActionListener(new ActionListener() {
@@ -509,14 +498,14 @@ public class TrapSenderPanel extends javax.swing.JFrame {
 			}
 
 			if (jListTraps.getSelectedIndex() != defaultListModelTraps.size() - 1) {
-				JMenuItem item4 = new JMenuItem("Move Down");
-				item4.addActionListener(new ActionListener() {
+				JMenuItem item5 = new JMenuItem("Move Down");
+				item5.addActionListener(new ActionListener() {
 					@Override
 					public void actionPerformed(ActionEvent e) {
 						trapMoveDown();
 					}
 				});
-				popup.add(item4);
+				popup.add(item5);
 			}
 		}
 
@@ -558,6 +547,17 @@ public class TrapSenderPanel extends javax.swing.JFrame {
 		return traps;
 	}
 
+	private void copyTrap() {
+		Trap trap = (Trap) jListTraps.getSelectedValue();
+		Trap copyTrap = new Trap(trap.getName(), trap.getOID(),
+				trap.getComunity(), trap.getVarbinds());
+		copyTrap.setName(trap.getName() + "_copy");
+		trapService.addTrap(copyTrap);
+		JOptionPane.showMessageDialog(null, "Copy added", "Success",
+				JOptionPane.INFORMATION_MESSAGE);
+		defaultListModelTraps.addElement(copyTrap);
+	}
+
 	public DefaultListModel getDefaultListModelTraps() {
 		return defaultListModelTraps;
 	}
@@ -591,6 +591,7 @@ public class TrapSenderPanel extends javax.swing.JFrame {
 	private javax.swing.JList jListTraps;
 	private javax.swing.JPanel jPanelBorda;
 	private javax.swing.JPanel jPanelForm;
+	private javax.swing.JPanel jPanelFormSouth;
 	private javax.swing.JScrollPane jScrollPane1;
 	private javax.swing.JScrollPane jScrollPane2;
 	private javax.swing.JTextField jTextFieldManagerIP;

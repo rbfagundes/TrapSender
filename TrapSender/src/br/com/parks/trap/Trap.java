@@ -8,6 +8,7 @@ import br.com.parks.varbind.Varbind;
 
 @SuppressWarnings("serial")
 public class Trap implements Serializable {
+	private long Id;
 	private String name;
 	private String OID;
 	private String comunity;
@@ -21,6 +22,14 @@ public class Trap implements Serializable {
 		this.OID = OID;
 		this.comunity = comunity;
 		this.varbinds = varbinds;
+	}
+
+	public long getId() {
+		return this.Id;
+	}
+
+	public void setId(long id) {
+		this.Id = id;
 	}
 
 	public String getName() {

@@ -9,6 +9,7 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Random;
 
 import br.com.parks.trap.Trap;
 
@@ -19,6 +20,9 @@ public class TrapServiceImpl implements TrapService {
 	@Override
 	public void addTrap(Trap trap) {
 		List<Trap> traps = getTraps();
+
+		trap.setId(checkTrapId(traps));
+
 		try {
 			FileOutputStream fos = new FileOutputStream(getTrapFile());
 			ObjectOutputStream oos = new ObjectOutputStream(fos);
@@ -29,8 +33,22 @@ public class TrapServiceImpl implements TrapService {
 
 		} catch (Exception e) {
 			e.printStackTrace();
-			// System.out.println("Erro no add trap: " + e);
 		}
+
+	}
+
+	private long checkTrapId(List<Trap> traps) {
+		long id = new Random().nextLong();
+
+		for (int i = 0; i < traps.size(); i++) {
+			Trap trap = traps.get(i);
+			if (trap.getId() == id) {
+				i = 0;
+				id = new Random().nextLong();
+			}
+		}
+
+		return id;
 	}
 
 	@Override
@@ -80,7 +98,7 @@ public class TrapServiceImpl implements TrapService {
 		List<Trap> traps = getTraps();
 		for (Iterator<Trap> iter = traps.iterator(); iter.hasNext();) {
 			Trap t = iter.next();
-			if (t.getOID().equals(trap.getOID()))
+			if (t.getId() == trap.getId())
 				iter.remove();
 		}
 
@@ -101,7 +119,7 @@ public class TrapServiceImpl implements TrapService {
 		List<Trap> traps = getTraps();
 		for (Iterator<Trap> iter = traps.iterator(); iter.hasNext();) {
 			Trap t = iter.next();
-			if (t.getOID().equals(trap.getOID())) {
+			if (t.getId() == trap.getId()) {
 				t.setName(trap.getName());
 				t.setComunity(trap.getComunity());
 				t.setVarbinds(trap.getVarbinds());
