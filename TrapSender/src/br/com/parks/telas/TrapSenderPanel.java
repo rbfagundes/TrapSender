@@ -60,6 +60,9 @@ public class TrapSenderPanel extends javax.swing.JFrame {
 	// <editor-fold defaultstate="collapsed"
 	// <editor-fold defaultstate="collapsed"
 	// <editor-fold defaultstate="collapsed"
+	// <editor-fold defaultstate="collapsed"
+	// <editor-fold defaultstate="collapsed"
+	// <editor-fold defaultstate="collapsed"
 	// desc="Generated Code">//GEN-BEGIN:initComponents
 	private void initComponents() {
 		java.awt.GridBagConstraints gridBagConstraints;
@@ -85,6 +88,16 @@ public class TrapSenderPanel extends javax.swing.JFrame {
 		jButtonMoveUp = new javax.swing.JButton(new ImageIcon(
 				"images/go-up.png"));
 		jButtonMoveDown = new javax.swing.JButton(new ImageIcon(
+				"images/go-down.png"));
+		jButtonAddIPNE = new javax.swing.JButton(
+				new ImageIcon("images/add.png"));
+		jButtonEditIPNE = new javax.swing.JButton(new ImageIcon(
+				"images/edit.png"));
+		jButtonRemoveIPNE = new javax.swing.JButton(new ImageIcon(
+				"images/delete.png"));
+		jButtonMoveUPIPNE = new javax.swing.JButton(new ImageIcon(
+				"images/go-up.png"));
+		jButtonMoveDownIPNE = new javax.swing.JButton(new ImageIcon(
 				"images/go-down.png"));
 		jPanelFormSouth = new javax.swing.JPanel();
 		jLabel5 = new javax.swing.JLabel();
@@ -152,6 +165,11 @@ public class TrapSenderPanel extends javax.swing.JFrame {
 		gridBagConstraints.insets = new java.awt.Insets(0, 200, 0, 0);
 		jPanelForm.add(jTextFieldPort, gridBagConstraints);
 
+		jListNEsIP.addMouseListener(new java.awt.event.MouseAdapter() {
+			public void mouseClicked(java.awt.event.MouseEvent evt) {
+				jListNEsIPMouseClicked(evt);
+			}
+		});
 		jScrollPane1.setViewportView(jListNEsIP);
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
@@ -275,6 +293,93 @@ public class TrapSenderPanel extends javax.swing.JFrame {
 		gridBagConstraints.insets = new java.awt.Insets(120, 0, 0, 0);
 		jPanelForm.add(jButtonMoveDown, gridBagConstraints);
 
+		jButtonAddIPNE.setToolTipText("Add IP NE");
+		jButtonAddIPNE.setBorder(null);
+		jButtonAddIPNE.setBorderPainted(false);
+		jButtonAddIPNE.setContentAreaFilled(false);
+		jButtonAddIPNE.setFocusPainted(false);
+		jButtonAddIPNE.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				jButtonAddIPNEActionPerformed(evt);
+			}
+		});
+		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints.gridx = 2;
+		gridBagConstraints.gridy = 1;
+		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+		jPanelForm.add(jButtonAddIPNE, gridBagConstraints);
+
+		jButtonEditIPNE.setToolTipText("Edit IP NE");
+		jButtonEditIPNE.setBorder(null);
+		jButtonEditIPNE.setBorderPainted(false);
+		jButtonEditIPNE.setContentAreaFilled(false);
+		jButtonEditIPNE.setFocusPainted(false);
+		jButtonEditIPNE.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				jButtonEditIPNEActionPerformed(evt);
+			}
+		});
+		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints.gridx = 2;
+		gridBagConstraints.gridy = 1;
+		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+		gridBagConstraints.insets = new java.awt.Insets(60, 0, 0, 0);
+		jPanelForm.add(jButtonEditIPNE, gridBagConstraints);
+
+		jButtonRemoveIPNE.setToolTipText("Remove IP NE");
+		jButtonRemoveIPNE.setBorder(null);
+		jButtonRemoveIPNE.setBorderPainted(false);
+		jButtonRemoveIPNE.setContentAreaFilled(false);
+		jButtonRemoveIPNE.setFocusPainted(false);
+		jButtonRemoveIPNE
+				.addActionListener(new java.awt.event.ActionListener() {
+					public void actionPerformed(java.awt.event.ActionEvent evt) {
+						jButtonRemoveIPNEActionPerformed(evt);
+					}
+				});
+		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints.gridx = 2;
+		gridBagConstraints.gridy = 1;
+		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+		gridBagConstraints.insets = new java.awt.Insets(30, 0, 0, 0);
+		jPanelForm.add(jButtonRemoveIPNE, gridBagConstraints);
+
+		jButtonMoveUPIPNE.setToolTipText("Move Up");
+		jButtonMoveUPIPNE.setBorder(null);
+		jButtonMoveUPIPNE.setBorderPainted(false);
+		jButtonMoveUPIPNE.setContentAreaFilled(false);
+		jButtonMoveUPIPNE.setFocusPainted(false);
+		jButtonMoveUPIPNE
+				.addActionListener(new java.awt.event.ActionListener() {
+					public void actionPerformed(java.awt.event.ActionEvent evt) {
+						jButtonMoveUPIPNEActionPerformed(evt);
+					}
+				});
+		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints.gridx = 2;
+		gridBagConstraints.gridy = 1;
+		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+		gridBagConstraints.insets = new java.awt.Insets(90, 0, 0, 0);
+		jPanelForm.add(jButtonMoveUPIPNE, gridBagConstraints);
+
+		jButtonMoveDownIPNE.setToolTipText("Move Down");
+		jButtonMoveDownIPNE.setBorder(null);
+		jButtonMoveDownIPNE.setBorderPainted(false);
+		jButtonMoveDownIPNE.setContentAreaFilled(false);
+		jButtonMoveDownIPNE.setFocusPainted(false);
+		jButtonMoveDownIPNE
+				.addActionListener(new java.awt.event.ActionListener() {
+					public void actionPerformed(java.awt.event.ActionEvent evt) {
+						jButtonMoveDownIPNEActionPerformed(evt);
+					}
+				});
+		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints.gridx = 2;
+		gridBagConstraints.gridy = 1;
+		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+		gridBagConstraints.insets = new java.awt.Insets(120, 0, 0, 0);
+		jPanelForm.add(jButtonMoveDownIPNE, gridBagConstraints);
+
 		jPanelBorda.add(jPanelForm, java.awt.BorderLayout.CENTER);
 
 		jPanelFormSouth.setLayout(new java.awt.FlowLayout(
@@ -304,6 +409,167 @@ public class TrapSenderPanel extends javax.swing.JFrame {
 
 		pack();
 	}// </editor-fold>//GEN-END:initComponents
+
+	@SuppressWarnings("static-access")
+	private void jListNEsIPMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jListNEsIPMouseClicked
+		if (evt.getButton() == evt.BUTTON3) {
+			showJListIPNEMenu(evt);
+		}
+
+		if (evt.getClickCount() > 1) {
+			editIPNEPanel(jListNEsIP.getSelectedValue());
+		}
+	}// GEN-LAST:event_jListNEsIPMouseClicked
+
+	private void showJListIPNEMenu(java.awt.event.MouseEvent evt) {
+		JPopupMenu popup = new JPopupMenu();
+		JMenuItem item1 = new JMenuItem("Add IP");
+		item1.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				addIpNEPanel();
+			}
+		});
+		popup.add(item1);
+
+		if (jListNEsIP.getSelectedValue() != null) {
+			JMenuItem item2 = new JMenuItem("Edit IP");
+			item2.addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					editIPNEPanel(jListNEsIP.getSelectedValue());
+				}
+			});
+			popup.add(item2);
+
+			JMenuItem item3 = new JMenuItem("Remove IP");
+			item3.addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					removeIPNE();
+				}
+			});
+			popup.add(item3);
+
+			if (jListNEsIP.getSelectedIndex() != 0) {
+				JMenuItem item4 = new JMenuItem("Move Up");
+				item4.addActionListener(new ActionListener() {
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						ipNEMoveUp();
+					}
+				});
+				popup.add(item4);
+			}
+
+			if (jListNEsIP.getSelectedIndex() != defaultListModelNEs.size() - 1) {
+				JMenuItem item5 = new JMenuItem("Move Down");
+				item5.addActionListener(new ActionListener() {
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						ipNEMoveDown();
+					}
+				});
+				popup.add(item5);
+			}
+		}
+
+		popup.show(jListNEsIP, evt.getX(), evt.getY());
+	}
+
+	private void jButtonAddIPNEActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButtonAddIPNEActionPerformed
+		addIpNEPanel();
+	}// GEN-LAST:event_jButtonAddIPNEActionPerformed
+
+	private void addIpNEPanel() {
+		new IPNEPanel(defaultListModelNEs).setVisible(true);
+	}
+
+	private void jButtonEditIPNEActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButtonEditIPNEActionPerformed
+		editIPNEPanel(jListNEsIP.getSelectedValue());
+	}// GEN-LAST:event_jButtonEditIPNEActionPerformed
+
+	private void editIPNEPanel(Object trapObject) {
+		if (jListNEsIP.getSelectedValue() != null) {
+			new IPNEPanel(defaultListModelNEs, jListNEsIP.getSelectedIndex(),
+					trapObject).setVisible(true);
+		} else {
+			JOptionPane.showMessageDialog(null, "You need select an item.",
+					"Error", JOptionPane.ERROR_MESSAGE);
+		}
+	}
+
+	private void jButtonRemoveIPNEActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButtonRemoveIPNEActionPerformed
+		removeIPNE();
+	}// GEN-LAST:event_jButtonRemoveIPNEActionPerformed
+
+	private void removeIPNE() {
+		if (jListNEsIP.getSelectedValue() != null) {
+			String[] optionMessages = { "Yes", "No" };
+			int removeYes = JOptionPane.showOptionDialog(
+					null,
+					"Do you want remove this IP NE ("
+							+ jListNEsIP.getSelectedValue() + ")?",
+					"Attention", JOptionPane.YES_OPTION,
+					JOptionPane.QUESTION_MESSAGE, null, optionMessages, null);
+			if (removeYes == JOptionPane.YES_OPTION) {
+				defaultListModelNEs
+						.removeElement(jListNEsIP.getSelectedValue());
+			}
+		} else {
+			JOptionPane.showMessageDialog(null, "You need select an item.",
+					"Error", JOptionPane.ERROR_MESSAGE);
+		}
+	}
+
+	private void jButtonMoveUPIPNEActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButtonMoveUPIPNEActionPerformed
+		if (jListNEsIP.getSelectedIndex() == -1) {
+			JOptionPane.showMessageDialog(null, "Please select an item",
+					"Error", JOptionPane.ERROR_MESSAGE);
+		} else if (jListNEsIP.getSelectedIndex() == 0) {
+			JOptionPane.showMessageDialog(null, "You can't move up this item",
+					"Error", JOptionPane.ERROR_MESSAGE);
+		} else {
+			ipNEMoveUp();
+		}
+	}// GEN-LAST:event_jButtonMoveUPIPNEActionPerformed
+
+	private void ipNEMoveUp() {
+		int indexA = jListNEsIP.getSelectedIndex();
+
+		Object objA = defaultListModelNEs.elementAt(indexA);
+		Object objB = defaultListModelNEs.elementAt(indexA - 1);
+
+		defaultListModelNEs.set(indexA - 1, objA);
+		defaultListModelNEs.set(indexA, objB);
+		jListNEsIP.setSelectedIndex(indexA - 1);
+	}
+
+	private void jButtonMoveDownIPNEActionPerformed(
+			java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButtonMoveDownIPNEActionPerformed
+		if (jListNEsIP.getSelectedIndex() == -1) {
+			JOptionPane.showMessageDialog(null, "Please select an item",
+					"Error", JOptionPane.ERROR_MESSAGE);
+		} else if (jListNEsIP.getSelectedIndex() == defaultListModelNEs
+				.getSize() - 1) {
+			JOptionPane.showMessageDialog(null,
+					"You can't move down this item", "Error",
+					JOptionPane.ERROR_MESSAGE);
+		} else {
+			ipNEMoveDown();
+		}
+	}// GEN-LAST:event_jButtonMoveDownIPNEActionPerformed
+
+	private void ipNEMoveDown() {
+		int indexA = jListNEsIP.getSelectedIndex();
+
+		Object objA = defaultListModelNEs.elementAt(indexA);
+		Object objB = defaultListModelNEs.elementAt(indexA + 1);
+
+		defaultListModelNEs.set(indexA + 1, objA);
+		defaultListModelNEs.set(indexA, objB);
+		jListNEsIP.setSelectedIndex(indexA + 1);
+	}
 
 	private void jButtonMoveUpActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButtonMoveUpActionPerformed
 		if (jListTraps.getSelectedIndex() == -1) {
@@ -575,10 +841,15 @@ public class TrapSenderPanel extends javax.swing.JFrame {
 	}
 
 	// Variables declaration - do not modify//GEN-BEGIN:variables
+	private javax.swing.JButton jButtonAddIPNE;
 	private javax.swing.JButton jButtonAddTrap;
+	private javax.swing.JButton jButtonEditIPNE;
 	private javax.swing.JButton jButtonEditTrap;
 	private javax.swing.JButton jButtonMoveDown;
+	private javax.swing.JButton jButtonMoveDownIPNE;
+	private javax.swing.JButton jButtonMoveUPIPNE;
 	private javax.swing.JButton jButtonMoveUp;
+	private javax.swing.JButton jButtonRemoveIPNE;
 	private javax.swing.JButton jButtonRemoveTrap;
 	private javax.swing.JLabel jLabel1;
 	private javax.swing.JLabel jLabel2;
