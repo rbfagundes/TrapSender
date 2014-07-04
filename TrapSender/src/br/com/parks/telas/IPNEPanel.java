@@ -4,6 +4,8 @@
  */
 package br.com.parks.telas;
 
+import java.util.regex.Pattern;
+
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
@@ -23,6 +25,7 @@ public class IPNEPanel extends javax.swing.JFrame {
 	 */
 	public IPNEPanel() {
 		initComponents();
+		init();
 	}
 
 	public IPNEPanel(DefaultListModel nEListModel) {
@@ -34,13 +37,13 @@ public class IPNEPanel extends javax.swing.JFrame {
 	public IPNEPanel(DefaultListModel nEListModel, int index,
 			Object varbindObject) {
 		initComponents();
+		init();
 		this.edit = true;
 		this.nEListModel = nEListModel;
 		this.index = index;
 		this.setTitle("Edit IP NE");
 		jButtonAddIP.setText("Update IP");
 		jTextFieldIPNE.setText((String) varbindObject);
-
 	}
 
 	/**
@@ -106,16 +109,11 @@ public class IPNEPanel extends javax.swing.JFrame {
 	}// </editor-fold>//GEN-END:initComponents
 
 	private void init() {
-		// setVarbindListModel(new DefaultListModel());
-		// jListVarbinds.setModel(getVarbindListModel());
+		this.setLocationRelativeTo(null);
 	}
 
 	private void jButtonAddIPActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButtonAddIPActionPerformed
-		if (jTextFieldIPNE.getText().isEmpty()
-				|| jTextFieldIPNE.getText().trim().length() == 0) {
-			JOptionPane.showMessageDialog(null, "IP is empty", "Error",
-					JOptionPane.ERROR_MESSAGE);
-		} else {
+		if (verificarCampos()) {
 			if (!edit) {
 				nEListModel.addElement(jTextFieldIPNE.getText());
 				JOptionPane.showMessageDialog(null, "IP added", "Success",
@@ -129,49 +127,26 @@ public class IPNEPanel extends javax.swing.JFrame {
 		}
 	}// GEN-LAST:event_jButtonAddIPActionPerformed
 
-	/**
-	 * @param args
-	 *            the command line arguments
-	 */
-	public static void main(String args[]) {
-		/* Set the Nimbus look and feel */
-		// <editor-fold defaultstate="collapsed"
-		// desc=" Look and feel setting code (optional) ">
-		/*
-		 * If Nimbus (introduced in Java SE 6) is not available, stay with the
-		 * default look and feel. For details see
-		 * http://download.oracle.com/javase
-		 * /tutorial/uiswing/lookandfeel/plaf.html
-		 */
-		try {
-			for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager
-					.getInstalledLookAndFeels()) {
-				if ("Nimbus".equals(info.getName())) {
-					javax.swing.UIManager.setLookAndFeel(info.getClassName());
-					break;
-				}
-			}
-		} catch (ClassNotFoundException ex) {
-			java.util.logging.Logger.getLogger(IPNEPanel.class.getName()).log(
-					java.util.logging.Level.SEVERE, null, ex);
-		} catch (InstantiationException ex) {
-			java.util.logging.Logger.getLogger(IPNEPanel.class.getName()).log(
-					java.util.logging.Level.SEVERE, null, ex);
-		} catch (IllegalAccessException ex) {
-			java.util.logging.Logger.getLogger(IPNEPanel.class.getName()).log(
-					java.util.logging.Level.SEVERE, null, ex);
-		} catch (javax.swing.UnsupportedLookAndFeelException ex) {
-			java.util.logging.Logger.getLogger(IPNEPanel.class.getName()).log(
-					java.util.logging.Level.SEVERE, null, ex);
-		}
-		// </editor-fold>
+	private boolean isIPAddress(String str) {
+		Pattern ipPattern = Pattern
+				.compile("\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}");
+		return ipPattern.matcher(str).matches();
+	}
 
-		/* Create and display the form */
-		java.awt.EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				new IPNEPanel().setVisible(true);
-			}
-		});
+	private boolean verificarCampos() {
+		if (jTextFieldIPNE.getText().isEmpty()
+				|| jTextFieldIPNE.getText().trim().length() == 0) {
+			JOptionPane.showMessageDialog(null, "IP is empty", "Error",
+					JOptionPane.ERROR_MESSAGE);
+			return false;
+		}
+		if (!isIPAddress(jTextFieldIPNE.getText())) {
+			JOptionPane.showMessageDialog(null, "IP Manager is not valid.",
+					"Error", JOptionPane.ERROR_MESSAGE);
+			return false;
+		}
+
+		return true;
 	}
 
 	public DefaultListModel getnEListModel() {

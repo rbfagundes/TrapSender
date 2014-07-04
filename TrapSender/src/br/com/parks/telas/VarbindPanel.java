@@ -22,16 +22,19 @@ public class VarbindPanel extends javax.swing.JFrame {
 	 */
 	public VarbindPanel() {
 		initComponents();
+		init();
 	}
 
 	public VarbindPanel(DefaultListModel defaultListModel) {
 		initComponents();
+		init();
 		this.defaultListModel = defaultListModel;
 	}
 
 	public VarbindPanel(DefaultListModel defaultListModel, int index,
 			Object varbindObject) {
 		initComponents();
+		init();
 		this.edit = true;
 		this.defaultListModel = defaultListModel;
 		this.index = index;
@@ -131,6 +134,10 @@ public class VarbindPanel extends javax.swing.JFrame {
 
 		pack();
 	}// </editor-fold>//GEN-END:initComponents
+
+	private void init() {
+		this.setLocationRelativeTo(null);
+	}
 
 	private void jButtonAddActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton1ActionPerformed
 		if (jTextFieldValue.getText().isEmpty()
