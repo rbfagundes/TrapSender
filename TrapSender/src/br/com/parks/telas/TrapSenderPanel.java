@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
@@ -17,6 +18,7 @@ import javax.swing.JPopupMenu;
 
 import br.com.parks.service.TrapServiceImpl;
 import br.com.parks.trap.Trap;
+import br.com.parks.util.LimitedNumberTextFielDocument;
 
 /**
  * 
@@ -78,6 +80,30 @@ public class TrapSenderPanel extends javax.swing.JFrame {
 	// <editor-fold defaultstate="collapsed"
 	// <editor-fold defaultstate="collapsed"
 	// <editor-fold defaultstate="collapsed"
+	// <editor-fold defaultstate="collapsed"
+	// <editor-fold defaultstate="collapsed"
+	// <editor-fold defaultstate="collapsed"
+	// <editor-fold defaultstate="collapsed"
+	// <editor-fold defaultstate="collapsed"
+	// <editor-fold defaultstate="collapsed"
+	// <editor-fold defaultstate="collapsed"
+	// <editor-fold defaultstate="collapsed"
+	// <editor-fold defaultstate="collapsed"
+	// <editor-fold defaultstate="collapsed"
+	// <editor-fold defaultstate="collapsed"
+	// <editor-fold defaultstate="collapsed"
+	// <editor-fold defaultstate="collapsed"
+	// <editor-fold defaultstate="collapsed"
+	// <editor-fold defaultstate="collapsed"
+	// <editor-fold defaultstate="collapsed"
+	// <editor-fold defaultstate="collapsed"
+	// <editor-fold defaultstate="collapsed"
+	// <editor-fold defaultstate="collapsed"
+	// <editor-fold defaultstate="collapsed"
+	// <editor-fold defaultstate="collapsed"
+	// <editor-fold defaultstate="collapsed"
+	// <editor-fold defaultstate="collapsed"
+	// <editor-fold defaultstate="collapsed"
 	// desc="Generated Code">//GEN-BEGIN:initComponents
 	private void initComponents() {
 		java.awt.GridBagConstraints gridBagConstraints;
@@ -89,7 +115,6 @@ public class TrapSenderPanel extends javax.swing.JFrame {
 		jLabel2 = new javax.swing.JLabel();
 		jLabel3 = new javax.swing.JLabel();
 		jLabel4 = new javax.swing.JLabel();
-		jTextFieldPort = new javax.swing.JTextField();
 		jScrollPane1 = new javax.swing.JScrollPane();
 		jListNEsIP = new javax.swing.JList();
 		jScrollPane2 = new javax.swing.JScrollPane();
@@ -114,13 +139,20 @@ public class TrapSenderPanel extends javax.swing.JFrame {
 				"images/go-up.png"));
 		jButtonMoveDownIPNE = new javax.swing.JButton(new ImageIcon(
 				"images/go-down.png"));
+		jTextFieldPort = new javax.swing.JTextField();
+		jTextFieldPort.setDocument(new LimitedNumberTextFielDocument(11));
 		jPanelFormSouth = new javax.swing.JPanel();
 		jLabel5 = new javax.swing.JLabel();
 		jTextFieldQuantity = new javax.swing.JTextField();
+		jTextFieldQuantity.setDocument(new LimitedNumberTextFielDocument(2));
 		jLabel6 = new javax.swing.JLabel();
 		jTextFieldSendInterval = new javax.swing.JTextField();
+		jTextFieldSendInterval
+				.setDocument(new LimitedNumberTextFielDocument(2));
 		jLabel7 = new javax.swing.JLabel();
 		jTextFieldRepeatInterval = new javax.swing.JTextField();
+		jTextFieldRepeatInterval.setDocument(new LimitedNumberTextFielDocument(
+				2));
 		jPanelBotoes = new javax.swing.JPanel();
 		jPanelForm2 = new javax.swing.JPanel();
 		jButtonSend = new javax.swing.JButton(new ImageIcon("images/send.png"));
@@ -174,15 +206,6 @@ public class TrapSenderPanel extends javax.swing.JFrame {
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
 		gridBagConstraints.insets = new java.awt.Insets(0, 5, 20, 20);
 		jPanelForm.add(jLabel4, gridBagConstraints);
-
-		jTextFieldPort.setColumns(1);
-		gridBagConstraints = new java.awt.GridBagConstraints();
-		gridBagConstraints.gridx = 1;
-		gridBagConstraints.gridy = 0;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-		gridBagConstraints.ipadx = 53;
-		gridBagConstraints.insets = new java.awt.Insets(0, 200, 0, 0);
-		jPanelForm.add(jTextFieldPort, gridBagConstraints);
 
 		jListNEsIP.addMouseListener(new java.awt.event.MouseAdapter() {
 			public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -401,6 +424,14 @@ public class TrapSenderPanel extends javax.swing.JFrame {
 		gridBagConstraints.insets = new java.awt.Insets(128, 0, 0, 0);
 		jPanelForm.add(jButtonMoveDownIPNE, gridBagConstraints);
 
+		jTextFieldPort.setColumns(5);
+		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints.gridx = 1;
+		gridBagConstraints.gridy = 0;
+		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+		gridBagConstraints.insets = new java.awt.Insets(0, 200, 0, 0);
+		jPanelForm.add(jTextFieldPort, gridBagConstraints);
+
 		jPanelBorda.add(jPanelForm, java.awt.BorderLayout.CENTER);
 
 		jPanelFormSouth.setLayout(new java.awt.FlowLayout(
@@ -458,8 +489,73 @@ public class TrapSenderPanel extends javax.swing.JFrame {
 	}// </editor-fold>//GEN-END:initComponents
 
 	private void jButtonSendActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButtonSendActionPerformed
-		// TODO add your handling code here:
+		if (verificarCampos()) {
+		}
 	}// GEN-LAST:event_jButtonSendActionPerformed
+
+	private boolean verificarCampos() {
+		// IP
+		if (jTextFieldManagerIP.getText().isEmpty()
+				|| jTextFieldManagerIP.getText().trim().length() == 0) {
+			JOptionPane.showMessageDialog(null, "IP Manager is empty.,",
+					"Error", JOptionPane.ERROR_MESSAGE);
+			return false;
+		}
+
+		if (!isIPAddress(jTextFieldManagerIP.getText())) {
+			JOptionPane.showMessageDialog(null, "IP Manager is not valid.",
+					"Error", JOptionPane.ERROR_MESSAGE);
+			return false;
+		}
+
+		if (jTextFieldPort.getText().isEmpty()
+				|| jTextFieldPort.getText().trim().length() == 0) {
+			JOptionPane.showMessageDialog(null, "Port is empty.", "Error",
+					JOptionPane.ERROR_MESSAGE);
+			return false;
+		}
+
+		if (defaultListModelNEs.size() == 0) {
+			JOptionPane.showMessageDialog(null, "IP's NE list is empty.",
+					"Error", JOptionPane.ERROR_MESSAGE);
+			return false;
+		}
+
+		if (defaultListModelTraps.size() == 0) {
+			JOptionPane.showMessageDialog(null, "Traps list is empty.",
+					"Error", JOptionPane.ERROR_MESSAGE);
+			return false;
+		}
+
+		if (jTextFieldQuantity.getText().isEmpty()
+				|| jTextFieldQuantity.getText().trim().length() == 0) {
+			JOptionPane.showMessageDialog(null, "Quantity is empty.", "Error",
+					JOptionPane.ERROR_MESSAGE);
+			return false;
+		}
+
+		if (jTextFieldSendInterval.getText().isEmpty()
+				|| jTextFieldSendInterval.getText().trim().length() == 0) {
+			JOptionPane.showMessageDialog(null, "Send Interval is empty.",
+					"Error", JOptionPane.ERROR_MESSAGE);
+			return false;
+		}
+
+		if (jTextFieldRepeatInterval.getText().isEmpty()
+				|| jTextFieldRepeatInterval.getText().trim().length() == 0) {
+			JOptionPane.showMessageDialog(null, "Repeat Interval is empty.",
+					"Error", JOptionPane.ERROR_MESSAGE);
+			return false;
+		}
+
+		return true;
+	}
+
+	private boolean isIPAddress(String str) {
+		Pattern ipPattern = Pattern
+				.compile("\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}");
+		return ipPattern.matcher(str).matches();
+	}
 
 	@SuppressWarnings("static-access")
 	private void jListNEsIPMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jListNEsIPMouseClicked
@@ -664,6 +760,7 @@ public class TrapSenderPanel extends javax.swing.JFrame {
 		jTextFieldQuantity.setText("1");
 		jTextFieldRepeatInterval.setText("1");
 		jTextFieldSendInterval.setText("1");
+
 	}
 
 	private void jButtonAddTrapActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButtonAddTrapActionPerformed
