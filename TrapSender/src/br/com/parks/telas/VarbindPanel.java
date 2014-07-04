@@ -2,7 +2,9 @@ package br.com.parks.telas;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
+import javax.swing.text.PlainDocument;
 
+import br.com.parks.util.LimitedNumberTextFielDocument;
 import br.com.parks.varbind.Varbind;
 import br.com.parks.varbind.VarbindType;
 
@@ -55,6 +57,9 @@ public class VarbindPanel extends javax.swing.JFrame {
 	// <editor-fold defaultstate="collapsed"
 	// <editor-fold defaultstate="collapsed"
 	// <editor-fold defaultstate="collapsed"
+	// <editor-fold defaultstate="collapsed"
+	// <editor-fold defaultstate="collapsed"
+	// <editor-fold defaultstate="collapsed"
 	// desc="Generated Code">//GEN-BEGIN:initComponents
 	private void initComponents() {
 		java.awt.GridBagConstraints gridBagConstraints;
@@ -93,6 +98,11 @@ public class VarbindPanel extends javax.swing.JFrame {
 
 		jComboBoxType.setModel(new javax.swing.DefaultComboBoxModel(
 				new String[] { "INTEGER", "GAUGE", "STRING", "TIMETICKS" }));
+		jComboBoxType.addItemListener(new java.awt.event.ItemListener() {
+			public void itemStateChanged(java.awt.event.ItemEvent evt) {
+				jComboBoxTypeItemStateChanged(evt);
+			}
+		});
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
@@ -117,7 +127,6 @@ public class VarbindPanel extends javax.swing.JFrame {
 
 		jButtonAdd.setText("Add");
 		jButtonAdd.addActionListener(new java.awt.event.ActionListener() {
-			@Override
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
 				jButtonAddActionPerformed(evt);
 			}
@@ -134,6 +143,15 @@ public class VarbindPanel extends javax.swing.JFrame {
 
 		pack();
 	}// </editor-fold>//GEN-END:initComponents
+
+	private void jComboBoxTypeItemStateChanged(java.awt.event.ItemEvent evt) {// GEN-FIRST:event_jComboBoxTypeItemStateChanged
+
+		if (jComboBoxType.getSelectedItem().equals("INTEGER")
+				|| jComboBoxType.getSelectedItem().equals("TIMETICKS"))
+			jTextFieldValue.setDocument(new LimitedNumberTextFielDocument(10));
+		else
+			jTextFieldValue.setDocument(new PlainDocument());
+	}// GEN-LAST:event_jComboBoxTypeItemStateChanged
 
 	private void init() {
 		this.setLocationRelativeTo(null);
