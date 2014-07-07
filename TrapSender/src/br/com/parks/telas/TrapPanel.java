@@ -351,6 +351,15 @@ public class TrapPanel extends javax.swing.JFrame {
 			});
 			popup.add(item3);
 
+			JMenuItem item5 = new JMenuItem("Copy Varbind");
+			item5.addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					copyVarbind();
+				}
+			});
+			popup.add(item5);
+
 			if (jListVarbinds.getSelectedIndex() != 0) {
 				JMenuItem item4 = new JMenuItem("Move Up");
 				item4.addActionListener(new ActionListener() {
@@ -375,6 +384,15 @@ public class TrapPanel extends javax.swing.JFrame {
 		}
 
 		popup.show(jListVarbinds, evt.getX(), evt.getY());
+	}
+
+	private void copyVarbind() {
+		Varbind varbind = (Varbind) jListVarbinds.getSelectedValue();
+		Varbind copyVarbind = new Varbind(varbind.getType(), varbind.getValue());
+		copyVarbind.setName(varbind.getName() + "_copy");
+		JOptionPane.showMessageDialog(null, "Copy added", "Success",
+				JOptionPane.INFORMATION_MESSAGE);
+		varbindListModel.addElement(copyVarbind);
 	}
 
 	private void jButtonMoveDownActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButtonMoveDownActionPerformed

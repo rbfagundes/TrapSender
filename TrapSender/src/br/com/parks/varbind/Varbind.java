@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 @SuppressWarnings("serial")
 public class Varbind implements Serializable {
+	private String name;
 	private VarbindType type;
 	private String value;
 
@@ -28,8 +29,19 @@ public class Varbind implements Serializable {
 		this.value = value;
 	}
 
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	@Override
 	public String toString() {
-		return this.type + " - " + this.value;
+		if (getName() != null)
+			return this.type + " - " + this.value + " - Copy";
+		else
+			return this.type + " - " + this.value;
 	}
 }
