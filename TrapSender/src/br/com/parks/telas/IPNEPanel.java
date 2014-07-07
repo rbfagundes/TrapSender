@@ -27,7 +27,7 @@ public class IPNEPanel extends javax.swing.JFrame {
 	private boolean edit = false;
 
 	/**
-	 * Creates new form IPNEPanel
+	 ** Creates new form IPNEPanel
 	 */
 	public IPNEPanel() {
 		initComponents();
