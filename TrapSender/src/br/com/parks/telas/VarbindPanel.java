@@ -1,5 +1,8 @@
 package br.com.parks.telas;
 
+import java.awt.Color;
+
+import javax.swing.BorderFactory;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import javax.swing.text.PlainDocument;
@@ -145,7 +148,6 @@ public class VarbindPanel extends javax.swing.JFrame {
 	}// </editor-fold>//GEN-END:initComponents
 
 	private void jComboBoxTypeItemStateChanged(java.awt.event.ItemEvent evt) {// GEN-FIRST:event_jComboBoxTypeItemStateChanged
-
 		if (jComboBoxType.getSelectedItem().equals("INTEGER")
 				|| jComboBoxType.getSelectedItem().equals("TIMETICKS"))
 			jTextFieldValue.setDocument(new LimitedNumberTextFielDocument(10));
@@ -155,6 +157,7 @@ public class VarbindPanel extends javax.swing.JFrame {
 
 	private void init() {
 		this.setLocationRelativeTo(null);
+		jTextFieldValue.setDocument(new LimitedNumberTextFielDocument(10));
 	}
 
 	private void jButtonAddActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton1ActionPerformed
@@ -162,7 +165,9 @@ public class VarbindPanel extends javax.swing.JFrame {
 				|| jTextFieldValue.getText().length() == 0) {
 			JOptionPane.showMessageDialog(null, "Value is empty", "Error",
 					JOptionPane.ERROR_MESSAGE);
-
+			jTextFieldValue.requestFocus();
+			jTextFieldValue
+					.setBorder(BorderFactory.createLineBorder(Color.red));
 		} else {
 			if (!edit) {
 				defaultListModel.addElement(new Varbind(getType(),

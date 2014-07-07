@@ -4,17 +4,20 @@
  */
 package br.com.parks.telas;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
+import javax.swing.BorderFactory;
 import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPopupMenu;
+import javax.swing.UIManager;
 
 import br.com.parks.service.TrapServiceImpl;
 import br.com.parks.trap.Trap;
@@ -458,20 +461,36 @@ public class TrapSenderPanel extends javax.swing.JFrame {
 				|| jTextFieldManagerIP.getText().trim().length() == 0) {
 			JOptionPane.showMessageDialog(null, "IP Manager is empty.",
 					"Error", JOptionPane.ERROR_MESSAGE);
+			jTextFieldManagerIP.requestFocus();
+			jTextFieldManagerIP.setBorder(BorderFactory
+					.createLineBorder(Color.red));
 			return false;
+		} else {
+			jTextFieldManagerIP.setBorder(UIManager
+					.getBorder("TextField.border"));
 		}
 
 		if (!isIPAddress(jTextFieldManagerIP.getText())) {
 			JOptionPane.showMessageDialog(null, "IP Manager is not valid.",
 					"Error", JOptionPane.ERROR_MESSAGE);
+			jTextFieldManagerIP.requestFocus();
+			jTextFieldManagerIP.setBorder(BorderFactory
+					.createLineBorder(Color.red));
 			return false;
+		} else {
+			jTextFieldManagerIP.setBorder(UIManager
+					.getBorder("TextField.border"));
 		}
 
 		if (jTextFieldPort.getText().isEmpty()
 				|| jTextFieldPort.getText().trim().length() == 0) {
 			JOptionPane.showMessageDialog(null, "Port is empty.", "Error",
 					JOptionPane.ERROR_MESSAGE);
+			jTextFieldPort.requestFocus();
+			jTextFieldPort.setBorder(BorderFactory.createLineBorder(Color.red));
 			return false;
+		} else {
+			jTextFieldPort.setBorder(UIManager.getBorder("TextField.border"));
 		}
 
 		if (defaultListModelNEs.size() == 0) {
@@ -490,21 +509,39 @@ public class TrapSenderPanel extends javax.swing.JFrame {
 				|| jTextFieldQuantity.getText().trim().length() == 0) {
 			JOptionPane.showMessageDialog(null, "Quantity is empty.", "Error",
 					JOptionPane.ERROR_MESSAGE);
+			jTextFieldQuantity.requestFocus();
+			jTextFieldQuantity.setBorder(BorderFactory
+					.createLineBorder(Color.red));
 			return false;
+		} else {
+			jTextFieldQuantity.setBorder(UIManager
+					.getBorder("TextField.border"));
 		}
 
 		if (jTextFieldSendInterval.getText().isEmpty()
 				|| jTextFieldSendInterval.getText().trim().length() == 0) {
 			JOptionPane.showMessageDialog(null, "Send Interval is empty.",
 					"Error", JOptionPane.ERROR_MESSAGE);
+			jTextFieldSendInterval.requestFocus();
+			jTextFieldSendInterval.setBorder(BorderFactory
+					.createLineBorder(Color.red));
 			return false;
+		} else {
+			jTextFieldSendInterval.setBorder(UIManager
+					.getBorder("TextField.border"));
 		}
 
 		if (jTextFieldRepeatInterval.getText().isEmpty()
 				|| jTextFieldRepeatInterval.getText().trim().length() == 0) {
 			JOptionPane.showMessageDialog(null, "Repeat Interval is empty.",
 					"Error", JOptionPane.ERROR_MESSAGE);
+			jTextFieldRepeatInterval.requestFocus();
+			jTextFieldRepeatInterval.setBorder(BorderFactory
+					.createLineBorder(Color.red));
 			return false;
+		} else {
+			jTextFieldRepeatInterval.setBorder(UIManager
+					.getBorder("TextField.border"));
 		}
 
 		return true;

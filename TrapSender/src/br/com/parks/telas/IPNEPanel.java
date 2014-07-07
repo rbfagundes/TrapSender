@@ -4,10 +4,13 @@
  */
 package br.com.parks.telas;
 
+import java.awt.Color;
 import java.util.regex.Pattern;
 
+import javax.swing.BorderFactory;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
 
 import br.com.parks.ne.Ne;
 import br.com.parks.util.LimitedNumberTextFielDocument;
@@ -169,18 +172,32 @@ public class IPNEPanel extends javax.swing.JFrame {
 				|| jTextFieldIPNE.getText().trim().length() == 0) {
 			JOptionPane.showMessageDialog(null, "IP is empty", "Error",
 					JOptionPane.ERROR_MESSAGE);
+			jTextFieldIPNE.requestFocus();
+			jTextFieldIPNE.setBorder(BorderFactory.createLineBorder(Color.red));
 			return false;
+		} else {
+			jTextFieldIPNE.setBorder(UIManager.getBorder("TextField.border"));
 		}
+
 		if (!isIPAddress(jTextFieldIPNE.getText())) {
 			JOptionPane.showMessageDialog(null, "IP is not valid.", "Error",
 					JOptionPane.ERROR_MESSAGE);
+			jTextFieldIPNE.requestFocus();
+			jTextFieldIPNE.setBorder(BorderFactory.createLineBorder(Color.red));
 			return false;
+		} else {
+			jTextFieldIPNE.setBorder(UIManager.getBorder("TextField.border"));
 		}
+
 		if (jTextFieldPort.getText().isEmpty()
 				|| jTextFieldPort.getText().length() == 0) {
 			JOptionPane.showMessageDialog(null, "Port is empty", "Error",
 					JOptionPane.ERROR_MESSAGE);
+			jTextFieldPort.requestFocus();
+			jTextFieldPort.setBorder(BorderFactory.createLineBorder(Color.red));
 			return false;
+		} else {
+			jTextFieldPort.setBorder(UIManager.getBorder("TextField.border"));
 		}
 
 		return true;

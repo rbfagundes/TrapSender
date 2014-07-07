@@ -4,16 +4,19 @@
  */
 package br.com.parks.telas;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.BorderFactory;
 import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPopupMenu;
+import javax.swing.UIManager;
 
 import br.com.parks.service.TrapServiceImpl;
 import br.com.parks.trap.Trap;
@@ -511,14 +514,22 @@ public class TrapPanel extends javax.swing.JFrame {
 				|| jTextFieldNome.getText().trim().length() == 0) {
 			JOptionPane.showMessageDialog(null, "Name is empty", "Error",
 					JOptionPane.ERROR_MESSAGE);
+			jTextFieldNome.requestFocus();
+			jTextFieldNome.setBorder(BorderFactory.createLineBorder(Color.red));
 			return false;
+		} else {
+			jTextFieldNome.setBorder(UIManager.getBorder("TextField.border"));
 		}
 
 		if (jTextFieldOID.getText().isEmpty()
 				|| jTextFieldOID.getText().trim().length() == 0) {
 			JOptionPane.showMessageDialog(null, "OID is empty", "Error",
 					JOptionPane.ERROR_MESSAGE);
+			jTextFieldOID.requestFocus();
+			jTextFieldOID.setBorder(BorderFactory.createLineBorder(Color.red));
 			return false;
+		} else {
+			jTextFieldOID.setBorder(UIManager.getBorder("TextField.border"));
 		}
 
 		if (jListVarbinds.getModel().getSize() == 0) {
@@ -530,7 +541,13 @@ public class TrapPanel extends javax.swing.JFrame {
 		if (jPasswordFieldComunity.getPassword().length == 0) {
 			JOptionPane.showMessageDialog(null, "Comunity is empty", "Error",
 					JOptionPane.ERROR_MESSAGE);
+			jPasswordFieldComunity.requestFocus();
+			jPasswordFieldComunity.setBorder(BorderFactory
+					.createLineBorder(Color.red));
 			return false;
+		} else {
+			jPasswordFieldComunity.setBorder(UIManager
+					.getBorder("TextField.border"));
 		}
 
 		return true;
