@@ -39,6 +39,7 @@ public class TrapPanel extends javax.swing.JFrame {
 	private TrapGroupServiceImpl groupService = new TrapGroupServiceImpl();
 	private TrapSenderPanel trapSenderPanel;
 	private DefaultComboBoxModel comboBoxModel;
+	private long trapId;
 
 	/**
 	 * Creates new form TrapPanel
@@ -58,19 +59,6 @@ public class TrapPanel extends javax.swing.JFrame {
 		updateGroups(groupObject);
 	}
 
-	public void updateGroups(Object groupObject) {
-		comboBoxModel.removeAllElements();
-		for (TrapGroup group : groupService.getGroups()) {
-			comboBoxModel.addElement(group);
-		}
-
-		if (groupObject != null) {
-			DefaultComboBoxModel comboModel = (DefaultComboBoxModel) jComboBoxTrapGroup
-					.getModel();
-			comboModel.setSelectedItem(groupObject);
-		}
-	}
-
 	@SuppressWarnings("deprecation")
 	public TrapPanel(DefaultListModel trapListModel, int index,
 			Object trapObject, Object groupObject,
@@ -84,6 +72,7 @@ public class TrapPanel extends javax.swing.JFrame {
 		this.trapSenderPanel = trapSenderPanel;
 
 		Trap trap = (Trap) trapObject;
+		this.trapId = trap.getId();
 		jTextFieldNome.setText(trap.getName());
 		jTextFieldOID.setText(trap.getOID());
 		jTextFieldOID.disable();
@@ -97,6 +86,19 @@ public class TrapPanel extends javax.swing.JFrame {
 
 		updateGroups(groupObject);
 
+	}
+
+	public void updateGroups(Object groupObject) {
+		comboBoxModel.removeAllElements();
+		for (TrapGroup group : groupService.getGroups()) {
+			comboBoxModel.addElement(group);
+		}
+
+		if (groupObject != null) {
+			DefaultComboBoxModel comboModel = (DefaultComboBoxModel) jComboBoxTrapGroup
+					.getModel();
+			comboModel.setSelectedItem(groupObject);
+		}
 	}
 
 	/**
@@ -535,10 +537,12 @@ public class TrapPanel extends javax.swing.JFrame {
 						JOptionPane.INFORMATION_MESSAGE);
 				dispose();
 			} else {
+				trap.setId(getTrapId());
 				trapService.editTrap(trap);
 				trapListModel.set(index, trap);
 				JOptionPane.showMessageDialog(null, "Trap edited", "Success",
 						JOptionPane.INFORMATION_MESSAGE);
+				trapSenderPanel.updateGroups();
 			}
 
 			dispose();
@@ -692,6 +696,14 @@ public class TrapPanel extends javax.swing.JFrame {
 
 	public void setComboBoxModel(DefaultComboBoxModel comboBoxModel) {
 		this.comboBoxModel = comboBoxModel;
+	}
+
+	public long getTrapId() {
+		return trapId;
+	}
+
+	public void setTrapId(long trapId) {
+		this.trapId = trapId;
 	}
 
 	// Variables declaration - do not modify//GEN-BEGIN:variables

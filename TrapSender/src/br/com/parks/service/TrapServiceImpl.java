@@ -116,6 +116,7 @@ public class TrapServiceImpl implements TrapService {
 
 	@Override
 	public void editTrap(Trap trap) {
+
 		List<Trap> traps = getTraps();
 		for (Iterator<Trap> iter = traps.iterator(); iter.hasNext();) {
 			Trap t = iter.next();
@@ -123,6 +124,7 @@ public class TrapServiceImpl implements TrapService {
 				t.setName(trap.getName());
 				t.setComunity(trap.getComunity());
 				t.setVarbinds(trap.getVarbinds());
+				t.setGroupId(trap.getGroupId());
 			}
 		}
 

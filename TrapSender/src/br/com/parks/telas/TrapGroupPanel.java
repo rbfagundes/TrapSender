@@ -146,7 +146,8 @@ public class TrapGroupPanel extends javax.swing.JFrame {
 						JOptionPane.INFORMATION_MESSAGE);
 
 				trapSenderPanel.updateGroups();
-				trapPanel.updateGroups(group);
+				if (trapPanel != null)
+					trapPanel.updateGroups(group);
 
 			} else {
 				groupService.editGroup(group);
