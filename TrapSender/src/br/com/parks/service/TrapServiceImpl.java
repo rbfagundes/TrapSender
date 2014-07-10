@@ -34,7 +34,6 @@ public class TrapServiceImpl implements TrapService {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
 
 	private long checkTrapId(List<Trap> traps) {
@@ -122,6 +121,7 @@ public class TrapServiceImpl implements TrapService {
 			Trap t = iter.next();
 			if (t.getId() == trap.getId()) {
 				t.setName(trap.getName());
+				t.setOID(trap.getOID());
 				t.setComunity(trap.getComunity());
 				t.setVarbinds(trap.getVarbinds());
 				t.setGroupId(trap.getGroupId());
@@ -199,5 +199,35 @@ public class TrapServiceImpl implements TrapService {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Trap> getTrapsWithoutSpecificGroup(long groupId) {
+		List<Trap> traps;
+
+		File file;
+		FileInputStream fis;
+		ObjectInputStream ois = null;
+
+		try {
+			file = getTrapFile();
+			fis = new FileInputStream(file);
+			ois = new ObjectInputStream(fis);
+
+			traps = (List<Trap>) ois.readObject();
+			for (Iterator<Trap> iter = traps.iterator(); iter.hasNext();) {
+				Trap t = iter.next();
+				if (t.getGroupId() == groupId)
+					iter.remove();
+			}
+
+			ois.close();
+
+		} catch (Exception e) {
+			traps = new ArrayList<Trap>();
+		}
+
+		return traps;
+
 	}
 }

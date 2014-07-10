@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 
 import br.com.parks.ne.Ne;
+import br.com.parks.service.NEServiceImpl;
 import br.com.parks.util.LimitedNumberTextFielDocument;
 
 /**
@@ -25,6 +26,8 @@ public class IPNEPanel extends javax.swing.JFrame {
 	private DefaultListModel nEListModel;
 	private int index;
 	private boolean edit = false;
+	private long neId;
+	private NEServiceImpl neService = new NEServiceImpl();
 
 	/**
 	 ** Creates new form IPNEPanel
@@ -40,8 +43,7 @@ public class IPNEPanel extends javax.swing.JFrame {
 		this.nEListModel = nEListModel;
 	}
 
-	public IPNEPanel(DefaultListModel nEListModel, int index,
-			Object varbindObject) {
+	public IPNEPanel(DefaultListModel nEListModel, int index, Object neObject) {
 		initComponents();
 		init();
 		this.edit = true;
@@ -50,9 +52,10 @@ public class IPNEPanel extends javax.swing.JFrame {
 		this.setTitle("Edit IP NE");
 		jButtonAddIP.setText("Update IP");
 
-		Ne ne = (Ne) varbindObject;
+		Ne ne = (Ne) neObject;
 		jTextFieldIPNE.setText(ne.getIP());
 		jTextFieldPort.setText(Integer.toString(ne.getPort()));
+		this.neId = ne.getId();
 	}
 
 	/**
@@ -143,13 +146,17 @@ public class IPNEPanel extends javax.swing.JFrame {
 
 	private void jButtonAddIPActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButtonAddIPActionPerformed
 		if (verificarCampos()) {
+			Ne ne = new Ne(jTextFieldIPNE.getText(),
+					Integer.parseInt(jTextFieldPort.getText()));
+			ne.setId(getNeId());
+
 			if (!edit) {
-				Ne ne = new Ne(jTextFieldIPNE.getText(),
-						Integer.parseInt(jTextFieldPort.getText()));
+				neService.addNE(ne);
 				nEListModel.addElement(ne);
 				JOptionPane.showMessageDialog(null, "IP added", "Success",
 						JOptionPane.INFORMATION_MESSAGE);
 			} else {
+				neService.editNe(ne);
 				nEListModel.set(
 						index,
 						new Ne(jTextFieldIPNE.getText(), Integer
@@ -209,6 +216,14 @@ public class IPNEPanel extends javax.swing.JFrame {
 
 	public void setnEListModel(DefaultListModel nEListModel) {
 		this.nEListModel = nEListModel;
+	}
+
+	public long getNeId() {
+		return neId;
+	}
+
+	public void setNeId(long neId) {
+		this.neId = neId;
 	}
 
 	// Variables declaration - do not modify//GEN-BEGIN:variables

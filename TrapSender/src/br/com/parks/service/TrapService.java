@@ -21,4 +21,6 @@ public interface TrapService {
 	List<Trap> getTrapsByGroup(long groupId);
 
 	void removeTrapsByGroupId(long groupId);
+
+	List<Trap> getTrapsWithoutSpecificGroup(long groupId);
 }

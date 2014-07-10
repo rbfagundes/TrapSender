@@ -20,6 +20,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPopupMenu;
 import javax.swing.UIManager;
 
+import br.com.parks.ne.Ne;
+import br.com.parks.service.NEServiceImpl;
 import br.com.parks.service.TrapGroupServiceImpl;
 import br.com.parks.service.TrapServiceImpl;
 import br.com.parks.trap.Trap;
@@ -37,6 +39,7 @@ public class TrapSenderPanel extends javax.swing.JFrame {
 	private DefaultComboBoxModel comboBoxModel;
 	TrapServiceImpl trapService = new TrapServiceImpl();
 	TrapGroupServiceImpl groupService = new TrapGroupServiceImpl();
+	NEServiceImpl neService = new NEServiceImpl();
 
 	/**
 	 * Creates new form TrapSenderPanel
@@ -749,6 +752,7 @@ public class TrapSenderPanel extends javax.swing.JFrame {
 					"Attention", JOptionPane.YES_OPTION,
 					JOptionPane.QUESTION_MESSAGE, null, optionMessages, null);
 			if (removeYes == JOptionPane.YES_OPTION) {
+				neService.removeNe((Ne) jListNEsIP.getSelectedValue());
 				defaultListModelNEs
 						.removeElement(jListNEsIP.getSelectedValue());
 			}
@@ -767,6 +771,17 @@ public class TrapSenderPanel extends javax.swing.JFrame {
 		defaultListModelNEs.set(indexA - 1, objA);
 		defaultListModelNEs.set(indexA, objB);
 		jListNEsIP.setSelectedIndex(indexA - 1);
+		neService.saveNes(getNesOnJList());
+	}
+
+	private List<Ne> getNesOnJList() {
+		List<Ne> nes = new ArrayList<Ne>();
+		for (int i = 0; i < defaultListModelNEs.size(); i++) {
+			Ne ne = (Ne) defaultListModelNEs.getElementAt(i);
+			nes.add(ne);
+		}
+
+		return nes;
 	}
 
 	private void jButtonMoveDownIPNEActionPerformed(
@@ -793,6 +808,7 @@ public class TrapSenderPanel extends javax.swing.JFrame {
 		defaultListModelNEs.set(indexA + 1, objA);
 		defaultListModelNEs.set(indexA, objB);
 		jListNEsIP.setSelectedIndex(indexA + 1);
+		neService.saveNes(getNesOnJList());
 	}
 
 	private void jButtonMoveUpActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButtonMoveUpActionPerformed
@@ -837,8 +853,7 @@ public class TrapSenderPanel extends javax.swing.JFrame {
 		addTraps();
 
 		// set NE's
-		setDefaultListModelNEs(new DefaultListModel());
-		jListNEsIP.setModel(getDefaultListModelNEs());
+		addNes();
 	}
 
 	public void updateGroups() {
@@ -860,6 +875,16 @@ public class TrapSenderPanel extends javax.swing.JFrame {
 			for (Trap trap : trapService.getTrapsByGroup(group.getId())) {
 				defaultListModelTraps.addElement(trap);
 			}
+		}
+	}
+
+	private void addNes() {
+		setDefaultListModelNEs(new DefaultListModel());
+		jListNEsIP.setModel(getDefaultListModelNEs());
+		jListNEsIP.removeAll();
+
+		for (Ne ne : neService.getNes()) {
+			defaultListModelNEs.addElement(ne);
 		}
 	}
 
@@ -1056,12 +1081,21 @@ public class TrapSenderPanel extends javax.swing.JFrame {
 
 	private List<Trap> getTrapsOnJList() {
 		List<Trap> traps = new ArrayList<Trap>();
+		long groupId = 0;
+
+		if (defaultListModelTraps.size() > 0)
+			groupId = ((Trap) defaultListModelTraps.getElementAt(0))
+					.getGroupId();
+
+		traps = trapService.getTrapsWithoutSpecificGroup(groupId);
+
 		for (int i = 0; i < defaultListModelTraps.size(); i++) {
 			Trap trap = (Trap) defaultListModelTraps.getElementAt(i);
 			traps.add(trap);
 		}
 
 		return traps;
+
 	}
 
 	private void copyTrap() {

@@ -1,6 +1,10 @@
 package br.com.parks.ne;
 
-public class Ne {
+import java.io.Serializable;
+
+@SuppressWarnings("serial")
+public class Ne implements Serializable {
+	private long Id;
 	private String IP;
 	private int port;
 
@@ -27,5 +31,13 @@ public class Ne {
 
 	public String toString() {
 		return this.getIP() + " : " + this.port;
+	}
+
+	public long getId() {
+		return Id;
+	}
+
+	public void setId(long id) {
+		Id = id;
 	}
 }

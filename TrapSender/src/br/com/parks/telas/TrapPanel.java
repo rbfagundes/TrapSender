@@ -59,7 +59,6 @@ public class TrapPanel extends javax.swing.JFrame {
 		updateGroups(groupObject);
 	}
 
-	@SuppressWarnings("deprecation")
 	public TrapPanel(DefaultListModel trapListModel, int index,
 			Object trapObject, Object groupObject,
 			TrapSenderPanel trapSenderPanel) {
@@ -75,7 +74,6 @@ public class TrapPanel extends javax.swing.JFrame {
 		this.trapId = trap.getId();
 		jTextFieldNome.setText(trap.getName());
 		jTextFieldOID.setText(trap.getOID());
-		jTextFieldOID.disable();
 		jPasswordFieldComunity.setText(trap.getComunity());
 		for (Varbind varbind : trap.getVarbinds()) {
 			varbindListModel.addElement(varbind);
@@ -531,7 +529,8 @@ public class TrapPanel extends javax.swing.JFrame {
 					groupService.getIdByName(group.getName()));
 			if (!edit) {
 				trapService.addTrap(trap);
-				trapListModel.addElement(trap);
+				trapSenderPanel.updateGroups();
+				// trapListModel.addElement(trap);
 
 				JOptionPane.showMessageDialog(null, "Trap added", "Success",
 						JOptionPane.INFORMATION_MESSAGE);
