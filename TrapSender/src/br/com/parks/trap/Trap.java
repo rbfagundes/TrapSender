@@ -13,15 +13,18 @@ public class Trap implements Serializable {
 	private String OID;
 	private String comunity;
 	private List<Varbind> varbinds = new ArrayList<Varbind>();
+	private long groupId;
 
 	public Trap() {
 	}
 
-	public Trap(String name, String OID, String comunity, List<Varbind> varbinds) {
+	public Trap(String name, String OID, String comunity,
+			List<Varbind> varbinds, long groupId) {
 		this.name = name;
 		this.OID = OID;
 		this.comunity = comunity;
 		this.varbinds = varbinds;
+		this.groupId = groupId;
 	}
 
 	public long getId() {
@@ -67,5 +70,13 @@ public class Trap implements Serializable {
 	@Override
 	public String toString() {
 		return this.OID + " - " + this.name;
+	}
+
+	public long getGroupId() {
+		return groupId;
+	}
+
+	public void setGroupId(long groupId) {
+		this.groupId = groupId;
 	}
 }

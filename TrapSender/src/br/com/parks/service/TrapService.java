@@ -17,4 +17,8 @@ public interface TrapService {
 	void editTrap(Trap trap);
 
 	void saveTraps(List<Trap> traps);
+
+	List<Trap> getTrapsByGroup(long groupId);
+
+	void removeTrapsByGroupId(long groupId);
 }

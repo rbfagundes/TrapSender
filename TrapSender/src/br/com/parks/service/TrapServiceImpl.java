@@ -150,4 +150,52 @@ public class TrapServiceImpl implements TrapService {
 			e.printStackTrace();
 		}
 	}
+
+	@SuppressWarnings("unchecked")
+	public List<Trap> getTrapsByGroup(long groupId) {
+		List<Trap> allTraps;
+		List<Trap> traps = new ArrayList<Trap>();
+
+		File file;
+		FileInputStream fis;
+		ObjectInputStream ois = null;
+
+		try {
+			file = getTrapFile();
+			fis = new FileInputStream(file);
+			ois = new ObjectInputStream(fis);
+
+			allTraps = (List<Trap>) ois.readObject();
+			for (Trap trap : allTraps) {
+				if (trap.getGroupId() == groupId)
+					traps.add(trap);
+			}
+			ois.close();
+
+		} catch (Exception e) {
+			traps = new ArrayList<Trap>();
+		}
+
+		return traps;
+	}
+
+	public void removeTrapsByGroupId(long groupId) {
+		List<Trap> traps = getTraps();
+		for (Iterator<Trap> iter = traps.iterator(); iter.hasNext();) {
+			Trap t = iter.next();
+			if (t.getGroupId() == groupId)
+				iter.remove();
+		}
+
+		try {
+			FileOutputStream fos = new FileOutputStream(getTrapFile());
+			ObjectOutputStream oos = new ObjectOutputStream(fos);
+
+			oos.writeObject(traps);
+			oos.close();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }
