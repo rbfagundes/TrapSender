@@ -180,6 +180,7 @@ public class VarbindPanel extends javax.swing.JFrame {
 				JOptionPane.showMessageDialog(null, "Varbind edited",
 						"Success", JOptionPane.INFORMATION_MESSAGE);
 			}
+
 			dispose();
 		}
 	}// GEN-LAST:event_jButton1ActionPerformed
