@@ -154,7 +154,8 @@ public class TrapGroupPanel extends javax.swing.JFrame {
 				groupListModel.set(index,
 						new TrapGroup(jTextFieldName.getText()));
 				trapSenderPanel.updateGroups();
-				trapPanel.updateGroups(group);
+				if (trapPanel != null)
+					trapPanel.updateGroups(group);
 				JOptionPane.showMessageDialog(null, "Group edited", "Success",
 						JOptionPane.INFORMATION_MESSAGE);
 			}

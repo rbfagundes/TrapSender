@@ -21,7 +21,9 @@ import javax.swing.JPopupMenu;
 import javax.swing.UIManager;
 
 import br.com.parks.ne.Ne;
+import br.com.parks.sender.Sender;
 import br.com.parks.service.NEServiceImpl;
+import br.com.parks.service.SenderServiceImpl;
 import br.com.parks.service.TrapGroupServiceImpl;
 import br.com.parks.service.TrapServiceImpl;
 import br.com.parks.trap.Trap;
@@ -40,6 +42,7 @@ public class TrapSenderPanel extends javax.swing.JFrame {
 	TrapServiceImpl trapService = new TrapServiceImpl();
 	TrapGroupServiceImpl groupService = new TrapGroupServiceImpl();
 	NEServiceImpl neService = new NEServiceImpl();
+	SenderServiceImpl senderService = new SenderServiceImpl();
 
 	/**
 	 * Creates new form TrapSenderPanel
@@ -542,6 +545,19 @@ public class TrapSenderPanel extends javax.swing.JFrame {
 
 	private void jButtonSendActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButtonSendActionPerformed
 		if (verificarCampos()) {
+			Sender sender = new Sender();
+			sender.setIpManager(jTextFieldManagerIP.getText());
+			sender.setPort(Integer.parseInt(jTextFieldPort.getText()));
+			sender.setNes(neService.getNes());
+			sender.setGroup((TrapGroup) jComboBoxTrapGroup.getSelectedItem());
+			sender.setQuantity(Integer.parseInt(jTextFieldQuantity.getText()));
+			sender.setRepeatInterval(Integer.parseInt(jTextFieldRepeatInterval
+					.getText()));
+			sender.setSendInterval(Integer.parseInt(jTextFieldSendInterval
+					.getText()));
+
+			senderService.send(sender);
+
 			// habilita botão de pause
 			jButtonPause.setEnabled(true);
 
@@ -592,12 +608,22 @@ public class TrapSenderPanel extends javax.swing.JFrame {
 		if (defaultListModelNEs.size() == 0) {
 			JOptionPane.showMessageDialog(null, "IP's NE list is empty.",
 					"Error", JOptionPane.ERROR_MESSAGE);
+			jListNEsIP.setBorder(BorderFactory.createLineBorder(Color.red));
+			return false;
+		}
+
+		if (jComboBoxTrapGroup.getSelectedItem() == null) {
+			JOptionPane.showMessageDialog(null, "You need add a group.",
+					"Error", JOptionPane.ERROR_MESSAGE);
+			jComboBoxTrapGroup.setBorder(BorderFactory
+					.createLineBorder(Color.red));
 			return false;
 		}
 
 		if (defaultListModelTraps.size() == 0) {
 			JOptionPane.showMessageDialog(null, "Traps list is empty.",
 					"Error", JOptionPane.ERROR_MESSAGE);
+			jListTraps.setBorder(BorderFactory.createLineBorder(Color.red));
 			return false;
 		}
 
