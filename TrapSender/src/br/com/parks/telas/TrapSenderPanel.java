@@ -978,8 +978,8 @@ public class TrapSenderPanel extends javax.swing.JFrame {
 		 * /tutorial/uiswing/lookandfeel/plaf.html
 		 */
 		try {
-			javax.swing.UIManager
-					.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+			UIManager.setLookAndFeel(
+		            UIManager.getSystemLookAndFeelClassName());
 		} catch (ClassNotFoundException ex) {
 			java.util.logging.Logger.getLogger(TrapSenderPanel.class.getName())
 					.log(java.util.logging.Level.SEVERE, null, ex);
