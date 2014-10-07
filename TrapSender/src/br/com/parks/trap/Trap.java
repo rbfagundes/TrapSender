@@ -14,6 +14,8 @@ public class Trap implements Serializable {
 	private String comunity;
 	private List<Varbind> varbinds = new ArrayList<Varbind>();
 	private long groupId;
+	
+	// outra alteração
 
 	public Trap() {
 	}
