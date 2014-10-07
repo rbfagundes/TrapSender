@@ -8,6 +8,8 @@ public class Main {
 		new TrapSenderPanel().setVisible(true);
 		
 		// alteração na classe main.
+		
+		// segunda alteração
 	}
 
 }
