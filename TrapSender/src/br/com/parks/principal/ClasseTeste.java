@@ -4,9 +4,6 @@ public class ClasseTeste {
 	private String nome;
 	private int idade;
 	private String endereco;
-	private String um;
-	private String dois;
-	private String tres;
 	
 	public String getNome() {
 		return nome;
