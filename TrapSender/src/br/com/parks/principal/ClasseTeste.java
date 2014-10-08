@@ -6,6 +6,7 @@ public class ClasseTeste {
 	private int idade;
 	private String telefone;
 	private String endereco;
+
 	
 	public String getNome() {
 		return nome;
