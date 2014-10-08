@@ -2,9 +2,9 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
-	<classpathentry kind="lib" path="C:/Documents and Settings/User/Meus documentos/Java - libs/WebNMS/SNMPAPI/jars/AdventNetLogging.jar"/>
-	<classpathentry kind="lib" path="C:/Documents and Settings/User/Meus documentos/Java - libs/WebNMS/SNMPAPI/jars/AdventNetSnmp.jar"/>
-	<classpathentry kind="lib" path="C:/Documents and Settings/User/Meus documentos/Java - libs/WebNMS/SNMPAPI/jars/crimson.jar"/>
-	<classpathentry kind="lib" path="C:/Documents and Settings/User/Meus documentos/Java - libs/WebNMS/SNMPAPI/jars/jaxp.jar"/>
+	<classpathentry kind="lib" path="C:/AdventNet/WebNMS/classes/AdventNetLogging.jar"/>
+	<classpathentry kind="lib" path="C:/AdventNet/WebNMS/classes/AdventNetSnmp.jar"/>
+	<classpathentry kind="lib" path="C:/AdventNet/WebNMS/classes/crimson.jar"/>
+	<classpathentry kind="lib" path="C:/AdventNet/WebNMS/classes/jaxp.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
