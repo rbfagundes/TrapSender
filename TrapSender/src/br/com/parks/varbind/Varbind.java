@@ -8,8 +8,7 @@ public class Varbind implements Serializable {
 	private VarbindType type;
 	private String value;
 
-	public Varbind(VarbindType type, String value) {
-		this.type = type;
+	public Varbind(String value) {
 		this.value = value;
 	}
 

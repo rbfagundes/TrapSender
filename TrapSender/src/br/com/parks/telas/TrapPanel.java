@@ -480,7 +480,7 @@ public class TrapPanel extends javax.swing.JFrame {
 
 	private void copyVarbind() {
 		Varbind varbind = (Varbind) jListVarbinds.getSelectedValue();
-		Varbind copyVarbind = new Varbind(varbind.getType(), varbind.getValue());
+		Varbind copyVarbind = new Varbind( varbind.getValue());
 		copyVarbind.setName(varbind.getName() + "_copy");
 		JOptionPane.showMessageDialog(null, "Copy added", "Success",
 				JOptionPane.INFORMATION_MESSAGE);

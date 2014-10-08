@@ -170,12 +170,11 @@ public class VarbindPanel extends javax.swing.JFrame {
 					.setBorder(BorderFactory.createLineBorder(Color.red));
 		} else {
 			if (!edit) {
-				defaultListModel.addElement(new Varbind(getType(),
-						jTextFieldValue.getText()));
+				defaultListModel.addElement(new Varbind(						jTextFieldValue.getText()));
 				JOptionPane.showMessageDialog(null, "Varbind added", "Success",
 						JOptionPane.INFORMATION_MESSAGE);
 			} else {
-				defaultListModel.set(index, new Varbind(getType(),
+				defaultListModel.set(index, new Varbind(
 						jTextFieldValue.getText()));
 				JOptionPane.showMessageDialog(null, "Varbind edited",
 						"Success", JOptionPane.INFORMATION_MESSAGE);
@@ -185,18 +184,18 @@ public class VarbindPanel extends javax.swing.JFrame {
 		}
 	}// GEN-LAST:event_jButton1ActionPerformed
 
-	private VarbindType getType() {
-		switch (jComboBoxType.getSelectedIndex()) {
-		case 0:
-			return VarbindType.INTEGER;
-		case 1:
-			return VarbindType.GAUGE;
-		case 2:
-			return VarbindType.STRING;
-		default:
-			return VarbindType.TIMETICKS;
-		}
-	}
+//	private VarbindType getType() {
+//		switch (jComboBoxType.getSelectedIndex()) {
+//		case 0:
+//			return VarbindType.INTEGER;
+//		case 1:
+//			return VarbindType.GAUGE;
+//		case 2:
+//			return VarbindType.STRING;
+//		default:
+//			return VarbindType.TIMETICKS;
+//		}
+//	}
 
 	private int getIndexByType(VarbindType type) {
 		if (VarbindType.INTEGER.equals(type)) {
