@@ -4,6 +4,7 @@ public class ClasseTeste {
 	private String nome;
 	private int idade;
 	private String endereco;
+	private String um;
 	
 	public String getNome() {
 		return nome;
