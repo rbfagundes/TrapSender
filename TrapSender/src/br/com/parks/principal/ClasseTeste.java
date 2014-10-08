@@ -2,10 +2,13 @@ package br.com.parks.principal;
 
 public class ClasseTeste {
 	private String nome;
+	private String telefone;
 	private int idade;
+	private int cep;
 	private String endereco;
 	private String um;
 	private String dois;
+	private String doisemeio;
 	private String tres;
 	
 	public String getNome() {
